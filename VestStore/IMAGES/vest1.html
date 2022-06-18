@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let i;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",i=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")&&this._isValidScriptType(i)?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}_isValidScriptType(e){return!e||""===e||"string"==typeof e&&["text/javascript","text/x-javascript","text/ecmascript","text/jscript","application/javascript","application/x-javascript","application/ecmascript","application/jscript","module"].includes(e.toLowerCase())}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){const n=e[t];Object.defineProperty(e,t,{get:n||function(){},set:n=>{e["rocket"+t]=n}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let a=e.get(n);void 0===a&&(a=n.nextSibling,e.set(n,a));const o=document.createDocumentFragment();i.setStart(o,0),o.appendChild(i.createContextualFragment(t)),r.insertBefore(o,a)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","touchcancel","touchforcechange","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+    <meta charset="UTF-8" />
+    <meta name="dc.language" content="VI">
+    <meta name="dc.source" content="//www.elleman.vn/">
+    <meta name="dc.creator" content="Elle" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit" content="1 days" />
+    <meta name="geo.placename" content="Vietnamese" />
+    <meta name="geo.region" content="Vietnamese" />
+    <meta name="generator" content="//www.elleman.vn" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>10 thương hiệu đồ vest nam cao cấp - ELLE MAN</title><style id="rocket-critical-css">:root{--wp-admin-theme-color:#007cba;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-20:#005a87}.aligncenter{clear:both}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,figure,header,nav{display:block}a{background-color:transparent}strong{font-weight:700}h1{margin:.67em 0;font-size:2em}img{border:0}figure{margin:1em 40px}button,input,select{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,input[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type=checkbox]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type=search]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}button,input,select{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7;text-decoration:none}figure{margin:0}img{vertical-align:middle}.thumbnail>img{display:block;max-width:100%;height:auto}h1,h2{font-family:inherit;font-weight:500;line-height:1.1;color:inherit}h1,h2{margin-top:20px;margin-bottom:10px}h1{font-size:36px}h2{font-size:30px}p{margin:0 0 10px}.text-center{text-align:center}ul{margin-top:0;margin-bottom:10px}ul ul{margin-bottom:0}.container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.row{margin-right:-15px;margin-left:-15px}.col-md-12,.col-md-4,.col-md-6,.col-md-8,.col-xs-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px}.col-xs-12{float:left}.col-xs-12{width:100%}@media (min-width:992px){.col-md-12,.col-md-4,.col-md-6,.col-md-8{float:left}.col-md-12{width:100%}.col-md-8{width:66.66666667%}.col-md-6{width:50%}.col-md-4{width:33.33333333%}}label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700}input[type=search]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}input[type=checkbox]{margin:4px 0 0;margin-top:1px\9;line-height:normal}select[multiple],select[size]{height:auto}.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.form-control::-moz-placeholder{color:#999;opacity:1}.form-control:-ms-input-placeholder{color:#999}.form-control::-webkit-input-placeholder{color:#999}.form-control::-ms-expand{background-color:transparent;border:0}input[type=search]{-webkit-appearance:none}.form-group{margin-bottom:15px}.checkbox{position:relative;display:block;margin-top:10px;margin-bottom:10px}.checkbox label{min-height:20px;padding-left:20px;margin-bottom:0;font-weight:400}.checkbox input[type=checkbox]{position:absolute;margin-top:4px\9;margin-left:-20px}.checkbox+.checkbox{margin-top:-5px}.btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;background-image:none;border:1px solid transparent;border-radius:4px}.btn-default{color:#333;background-color:#fff;border-color:#ccc}.thumbnail{display:block;padding:4px;margin-bottom:20px;line-height:1.42857143;background-color:#fff;border:1px solid #ddd;border-radius:4px}.thumbnail>img{margin-right:auto;margin-left:auto}.clearfix:after,.clearfix:before,.container:after,.container:before,.row:after,.row:before{display:table;content:" "}.clearfix:after,.container:after,.row:after{clear:both}.pull-right{float:right!important}.pull-left{float:left!important}@-ms-viewport{width:device-width}@media (max-width:767px){.hidden-xs{display:none!important}}@media (min-width:768px) and (max-width:991px){.hidden-sm{display:none!important}}@media (min-width:992px) and (max-width:1199px){.hidden-md{display:none!important}}@media (min-width:1200px){.hidden-lg{display:none!important}}@font-face{font-display:swap;font-family:'futurabold';src:url(https://www.elleman.vn/wp-content/themes/elleman/font/elle-futura-bold.otf) format("opentype");font-style:normal}@font-face{font-display:swap;font-family:'futuraMedium';src:url(https://www.elleman.vn/wp-content/themes/elleman/font/ElleFuturaMedium.otf) format("opentype")}@font-face{font-display:swap;font-family:'GaborBlack';src:url(https://www.elle.vn/wp-content/uploads/webfonts/ElleGaborStdBlack.otf) format("opentype")}body{font:400 14px/1.4 Arial,Tahoma;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}ul{list-style:none;margin:0;padding:0}a{color:#252525}.ico{background:url(https://www.elleman.vn/wp-content/themes/elleman/images/sprite.png) no-repeat;display:inline-block;vertical-align:middle}.ico.ico-face{width:8px;height:18px}.ico.ico-intas{background-position:-50px 0;width:20px;height:20px}.ico.ico-you{background-position:-100px 0;width:18px;height:21px}.ico.ico-logo-elle{background-position:-150px -250px;width:27px;height:14px}.ico.ico-logo-elleman{background-position:-250px -250px;width:71px;height:14px}.bottom-header{background:#333;min-width:999px}#page-content img{max-width:100%;height:auto;display:block;margin:0 auto}.line-red{width:100%;height:7px;background:url(https://www.elleman.vn/wp-content/themes/elleman/images/title-line.png) repeat}.navigation{line-height:35px;position:relative;font-size:0}.navigation>li{display:inline-block;position:relative;font-size:14px}.navigation>li>a{display:block;color:#fff;font-family:'futurabold';text-transform:uppercase;padding:5px 30px}.navigation>li.active a{color:#ed1c24;background:#1e1e1e}.navigation>li .sub-menu{position:absolute;top:100%;left:0;background:#1e1e1e;width:100%;z-index:20;display:none}.navigation>li .sub-menu li{border-bottom:1px solid #333;padding:7px 0 7px 30px}.navigation>li .sub-menu li a{color:#fff;display:block}.top-header{background:url(https://www.elleman.vn/wp-content/themes/elleman/images/line-nav.png) repeat-x;width:100%;height:30px;max-width:100%}.center-header{padding:40px 0}.center-header .social-share a{line-height:30px}.center-header .social-share span{text-transform:uppercase;color:#333;font-weight:bold}.nav-share li{display:inline-block}.nav-share li a{display:block;color:#252525;font-size:12px;padding:0 15px;line-height:30px}.nav-share li:first-child a{padding-left:0}.nav-share li:last-child a{padding-right:0}.social-share li{display:inline-block}.social-share li a{display:block;padding:0 10px}.search-header input{color:#252525;background:#fff;border:1px solid #000;font-size:12px;font-style:italic;padding:7px 10px;width:313px}.search-header .form-group{position:relative;margin-bottom:0;padding-top:7px}.search-header button{background:url(https://www.elleman.vn/wp-content/themes/elleman/images/sprite.png) no-repeat;background-position:-150px 0;width:20px;height:20px;position:absolute;right:5px;top:15px;border:none}.title-main{text-align:center;margin-top:40px;margin-bottom:30px;position:relative;float:left;width:100%}.title-main:after{content:'';display:table;clear:both}.title-main:before{background:url(https://www.elleman.vn/wp-content/themes/elleman/images/title-line.png) repeat-x;width:100%;height:7px;display:inline-block;content:"";position:absolute;top:50%;margin-top:-4px;left:0}.title-main h2{margin:0;font-size:22px;display:inline-block;font-family:'futurabold';text-transform:uppercase;font-weight:700;letter-spacing:1px;background:#fff;padding:0 20px;position:relative;z-index:90;color:#004c70}.title-small-verti{font-size:14px;font-weight:bold;display:inline-block;color:#252525;margin-top:10px}.list-verti>li{display:block;margin-bottom:4rem;position:relative;overflow:hidden}.box{margin-bottom:50px}.box img{width:100%}.box-care{margin-bottom:50px}.box-care .list-best-care li{display:block;margin-bottom:30px}.box-care .list-best-care li .number{float:left;margin-right:15px}.box-care .list-best-care li .number i{background:url(https://www.elleman.vn/wp-content/themes/elleman/images/sprite.png) no-repeat;vertical-align:middle;display:inline-block}.box-care .list-best-care li .number i.num-1{background-position:-200px 0;width:52px;height:51px}.box-care .list-best-care li .number i.num-2{background-position:-250px 0;width:52px;height:52px}.box-care .list-best-care li .number i.num-3{background-position:-350px 0;width:50px;height:55px}.box-care .list-best-care li .number i.num-4{background-position:-400px 0;width:52px;height:53px}.box-care .list-best-care li .number i.num-5{background-position:0 -50px;width:52px;height:55px}.box-care .list-best-care li .des-best{overflow:hidden;width:calc(100% - 78px);float:left}.box-care .list-best-care li .des-best .best-topic{color:#252525;font-weight:bold;font-size:14px}.box-care .list-best-care li:last-child{margin-bottom:0}.block-detail h1{font-family:'ellefutura';font-weight:bold;font-size:2.5em;color:#004c70}.info-detail{border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;padding:10px 0}.info-detail .date{display:inline-block;width:166px;color:#636363;font-size:10px;vertical-align:middle}.detail-main{margin:30px 0 40px 0}.detail-main .box-detail{color:#252525;font-size:14px;float:left;width:100%}.detail-main .box-detail h2{font-size:14px;margin-top:0;font-weight:bold}#sidebar .title-main{margin-top:0}#sidebar .list-verti>li{margin-bottom:1em}.site-breadcrumb{background:#fff;padding:0;margin-top:30px;margin-bottom:20px;color:#252525}.site-breadcrumb>span>span a{color:#252525;font-weight:bold}.site-breadcrumb .breadcrumb_last{color:#ed1c24;font-weight:bold}.navigation .line{display:none}.box-detail img{max-width:100%;height:auto}.wp-caption{max-width:100%!important;border:1px solid #ddd;text-align:center;background-color:#f3f3f3;padding-top:5px;margin:10px auto}.wp-caption img{max-width:100%!important;height:auto;display:block;margin:0 auto}.site-scroll-top{-moz-border-radius:4px;-webkit-border-radius:4px;-khtml-border-radius:4px;border-radius:4px;bottom:10px;display:block;height:32px;line-height:32px;position:fixed;right:10px;width:32px;z-index:999999}.site-scroll-top:after{-moz-border-radius:4px;-webkit-border-radius:4px;-khtml-border-radius:4px;border-radius:4px;background:url(https://www.elleman.vn/wp-content/themes/elleman/images/backtotop.png) no-repeat center 3px #cccccc;content:' ';display:block;height:32px;width:33px;left:0;margin-top:-16px;position:absolute;top:50%}.navigation>li>a{padding:5px 1.8em}.detail-more::after{content:'';display:table;clear:both}#sidebar .detail-more ul li{margin:5px 0 20px;width:100%}.detail-more ul li::after{content:'';display:table;clear:both}.detail-more ul li .thumbnail{float:left;padding:0;border:none;margin:0}.detail-more ul li .thumbnail img{width:110px;height:auto}.detail-more ul li .title-small-verti{float:left;width:calc(100% - 110px);margin-top:0;line-height:1.25;padding-left:12px}.detail-main .box-detail h2{line-height:18px}.detail-main .box-detail .excerpt{font-weight:600;font-size:1em;margin-bottom:2em;font-style:italic;text-align:justify}.detail-main .box-detail h2{font-size:1.4em;line-height:1.5em}.navigation>li .sub-menu{min-width:170px}.no-free-space{margin:0;padding:0}.newsletter-left-col img{width:45%;margin:15% 32%}input.form-control.newsletter-email{margin:auto;border:none;border-radius:0;border-bottom:1px solid #cccccc}div.newsletter-input-mail input{width:100%}div.newsletter-input-mail{width:80%;margin:auto;padding-top:1em}.newsletter-email-lable{text-align:center}label.label-email{font-size:1.1em;color:#FFFFFF}.ico-newsletter-email::before{content:"\f003";font-family:'FontAwesome';font-size:1.6em;color:#FFFFFF;padding:1px;float:left}.inside-mail-input{margin-left:30px}.newsletter-description{font-family:'GaborBlack'!important;font-size:2em;padding:2em 0 .5em 0;font-weight:600;color:#FFFFFF}.checkbox-group-newsletter{text-align:center;font-size:1.1em;margin:0 20%}.checkbox-group-newsletter .checkbox{border-bottom:1px solid #cccccc;line-height:2em}.checkbox-group-title{font-size:1.1em;margin:5% 10%;text-align:center;font-weight:bold;color:#FFFFFF}.checkbox-group-newsletter .checkbox-custom{opacity:0;position:absolute}.checkbox-group-newsletter .checkbox-custom,.checkbox-group-newsletter .checkbox-custom-label{display:inline-block;vertical-align:middle;margin:5px}.checkbox-group-newsletter .checkbox-custom-label{position:relative;width:100%;color:#cccccc;text-align:center}.checkbox-group-newsletter .checkbox-custom+.checkbox-custom-label:before{content:'';background:#fff;vertical-align:middle;width:20px;height:20px;text-align:center}.checkbox-group-newsletter .checkbox-custom:checked+.checkbox-custom-label:before{content:"\f00c";font-family:'FontAwesome';font-size:1.3em;color:#416e86;float:left}.checkbox-group-newsletter .checkbox-custom:checked+.checkbox-custom-label{color:#FFFFFF}.newsletter-submit-btn{padding:5px;width:100%;border:none;background-color:#FFFFFF;color:#000000}.btn-submit-newsletter{text-align:center;margin:5% 20%;font-size:1.1em}#newsletter-popup-message{font-size:2em;display:none;text-align:center;padding-top:30%;color:#fff}#newsletter-popup *{font-family:'futuraMedium'}#newsletter-popup img.desk-logo{display:block}#newsletter-popup img.mb-logo{display:none}.top-row-form-group{margin:auto;background-color:#fff;opacity:.8;width:80%}.full-height{height:100%}.flex-display{display:flex}.btn-submit-newsletter a{width:100%;display:block}.popup-desk-bakg .top-row-form-group{background-color:unset}.popup-desk-bakg input.form-control.newsletter-email{background-color:unset;color:#cccccc}.industry-listing{margin:0% 19%}.industry-group-title{text-align:center;font-size:1.3em;font-weight:800;margin:10% 0%;color:#FFFFFF}@media screen and (max-width:991px){.navigation{display:none}.social-share{display:none}.nav-share li a{display:block;color:#252525;font-size:12px;padding:0 5px}.top-row-form-group{width:100%}#newsletter-popup img.desk-logo{display:none}#newsletter-popup img.mb-logo{display:block}.nav-menu{position:absolute}.open-btn{right:15px;top:40px}.search-header input{width:98%}.left-overlay-items{width:50%;float:left;text-align:left;margin-top:1em}.right-overlay-items{width:50%;float:right;text-align:left;margin-top:1em}.right-overlay-items ul li ul.sub-menu{display:none}.overlay--menu{height:100%;width:100%;display:none;position:fixed;z-index:99;top:0;left:0;background-color:#FFFFFF}.overlay--menu-content{position:relative;top:10%;width:100%;text-align:center;margin-top:30px}.overlay--menu a{padding:8px;text-decoration:none;font-size:1.5em;color:#818181;display:block}.overlay--menu .closebtn{position:absolute;top:-15px;right:0;font-size:60px}.social-overlay-share{margin-top:5em;display:inline-block;width:100%}.social-overlay-share a{display:inline-block}}@media screen and (max-width:350px){.overlay--menu a{font-size:1.2em}}</style><link rel="preload" href="https://www.elleman.vn/wp-content/cache/min/1/eae586ec38a082548cb5f9053c5efa63.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all" data-minify="1" />
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <!--[if lt IE 9]>
+    <script src="https://www.elleman.vn/wp-content/themes/elleman/js/html5.js"></script>
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="vi" />
+    <meta property="fb:pages" content="160894577260274" />
+    <meta property="fb:pages" content="1546857168890148" />
+    <meta property="fb:pages" content="1551192411795558" />
+    <meta property="fb:pages" content="107040189342462" />
+    <meta property="fb:pages" content="139409226071758" />
+    <meta property="fb:pages" content="136731416394734" />
+    <meta property="fb:pages" content="146363388707099" />
+    <meta property="fb:pages" content="363063644079671" />
+    <meta property="fb:pages" content="224750504346508" />
+    <meta name="p:domain_verify" content="9a3324f4c73be2ccfeb7b0af33030b27" />
+    
+<!-- This site is optimized with the Yoast SEO plugin v12.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Khi muốn đầu tư một bộ đồ vest cao cấp với chất liệu vải thượng hạng và kỹ thuật may tinh xảo, đây sẽ là 10 thương hiệu đồ vest nam nổi tiếng bạn cần biết."/>
+<link rel="canonical" href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="10 thương hiệu đồ vest nam cao cấp - ELLE MAN" />
+<meta property="og:description" content="Khi muốn đầu tư một bộ đồ vest cao cấp với chất liệu vải thượng hạng và kỹ thuật may tinh xảo, đây sẽ là 10 thương hiệu đồ vest nam nổi tiếng bạn cần biết." />
+<meta property="og:url" content="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" />
+<meta property="og:site_name" content="ELLE Man" />
+<meta property="article:publisher" content="https://www.facebook.com/elleman.vn" />
+<meta property="article:tag" content="phong cach thoi trang nam" />
+<meta property="article:tag" content="the gioi thoi trang nam" />
+<meta property="article:tag" content="do vest nam" />
+<meta property="article:tag" content="ao vest nam dep" />
+<meta property="article:tag" content="thoi trang ao vest" />
+<meta property="article:section" content="Phong cách" />
+<meta property="article:published_time" content="2015-08-26T15:10:16+07:00" />
+<meta property="fb:app_id" content="1795437510498830" />
+<meta property="og:image" content="https://www.elleman.vn/wp-content/uploads/2015/07/30/do-vest-nam-cao-cap.jpg" />
+<meta property="og:image:secure_url" content="https://www.elleman.vn/wp-content/uploads/2015/07/30/do-vest-nam-cao-cap.jpg" />
+<meta property="og:image:width" content="1260" />
+<meta property="og:image:height" content="710" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.elleman.vn/#website","url":"https://www.elleman.vn/","name":"ELLE Man","potentialAction":{"@type":"SearchAction","target":"https://www.elleman.vn/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat#primaryimage","url":"https://www.elleman.vn/wp-content/uploads/2015/07/30/do-vest-nam-cao-cap.jpg","width":1260,"height":710,"caption":"10 th\u01b0\u01a1ng hi\u1ec7u \u0111\u1ed3 vest nam cao c\u1ea5p c\u1ea7n bi\u1ebft"},{"@type":"WebPage","@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat#webpage","url":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat","inLanguage":"en-US","name":"10 th\u01b0\u01a1ng hi\u1ec7u \u0111\u1ed3 vest nam cao c\u1ea5p - ELLE MAN","isPartOf":{"@id":"https://www.elleman.vn/#website"},"primaryImageOfPage":{"@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat#primaryimage"},"datePublished":"2015-08-26T15:10:16+07:00","dateModified":"2015-08-26T15:10:16+07:00","author":{"@id":"https://www.elleman.vn/#/schema/person/9724f162e2efd90a44663d492f954c6b"},"description":"Khi mu\u1ed1n \u0111\u1ea7u t\u01b0 m\u1ed9t b\u1ed9 \u0111\u1ed3 vest cao c\u1ea5p v\u1edbi ch\u1ea5t li\u1ec7u v\u1ea3i th\u01b0\u1ee3ng h\u1ea1ng v\u00e0 k\u1ef9 thu\u1eadt may tinh x\u1ea3o, \u0111\u00e2y s\u1ebd l\u00e0 10 th\u01b0\u01a1ng hi\u1ec7u \u0111\u1ed3 vest nam n\u1ed5i ti\u1ebfng b\u1ea1n c\u1ea7n bi\u1ebft.","breadcrumb":{"@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.elleman.vn/","url":"https://www.elleman.vn/","name":"Trang ch\u1ee7"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.elleman.vn/phong-do","url":"https://www.elleman.vn/phong-do","name":"Phong \u0111\u1ed9"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://www.elleman.vn/phong-do/phong-cach","url":"https://www.elleman.vn/phong-do/phong-cach","name":"Phong c\u00e1ch"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat","url":"https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat","name":"10 th\u01b0\u01a1ng hi\u1ec7u \u0111\u1ed3 vest nam \u0111\u1eb3ng c\u1ea5p nh\u1ea5t"}}]},{"@type":["Person"],"@id":"https://www.elleman.vn/#/schema/person/9724f162e2efd90a44663d492f954c6b","name":"forluisever@gmail.com","image":{"@type":"ImageObject","@id":"https://www.elleman.vn/#authorlogo","url":"https://secure.gravatar.com/avatar/de3730ebd0340d95c4ce6c3359ab41fe?s=96&d=mm&r=g","caption":"forluisever@gmail.com"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat/?amp" /><meta name="generator" content="AMP for WP 0.9.98.7"/><link rel='dns-prefetch' href='//www.elleman.vn' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//maps.googleapis.com' />
+<link rel='dns-prefetch' href='//maps.gstatic.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//apis.google.com' />
+<link rel='dns-prefetch' href='//google-analytics.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//ssl.google-analytics.com' />
+<link rel='dns-prefetch' href='//youtube.com' />
+<link rel='dns-prefetch' href='//api.pinterest.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//platform.twitter.com' />
+<link rel='dns-prefetch' href='//syndication.twitter.com' />
+<link rel='dns-prefetch' href='//platform.instagram.com' />
+<link rel='dns-prefetch' href='//disqus.com' />
+<link rel='dns-prefetch' href='//sitename.disqus.com' />
+<link rel='dns-prefetch' href='//s7.addthis.com' />
+<link rel='dns-prefetch' href='//platform.linkedin.com' />
+<link rel='dns-prefetch' href='//w.sharethis.com' />
+<link rel='dns-prefetch' href='//i0.wp.com' />
+<link rel='dns-prefetch' href='//i1.wp.com' />
+<link rel='dns-prefetch' href='//i2.wp.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//pixel.wp.com' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;cursor:pointer;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;background:url(https://www.elleman.vn/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat;cursor:pointer}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<link rel="https://api.w.org/" href="https://www.elleman.vn/wp-json/" /><link rel="alternate" type="application/json" href="https://www.elleman.vn/wp-json/wp/v2/posts/73695" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.elleman.vn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.elleman.vn/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://www.elleman.vn/?p=73695' />
+
+<link rel="preload" as="font" href="https://www.elleman.vn/wp-content/themes/elleman/font/elle-futura-bold.otf" crossorigin>
+<link rel="preload" as="font" href="https://www.elleman.vn/wp-content/themes/elleman/font/Elle%20Gabor%20Std%20Medium.otf" crossorigin>
+<link rel="preload" as="font" href="https://www.elleman.vn/wp-content/themes/elleman/fonts/fontawesome-webfont.woff2?v=4.7.0" crossorigin>
+<link rel="preload" as="font" href="https://www.elleman.vn/wp-content/themes/elleman/font/ElleFuturaMedium.otf" crossorigin><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>    <!-- Google Tag Manager -->
+    <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJD36HK');</script>
+    <!-- End Google Tag Manager -->
+    <script type="rocketlazyloadscript" data-minify="1" async='async' src='https://www.elleman.vn/wp-content/cache/min/1/tag/js/gpt.js?ver=1630301195'></script>
+    <script type="rocketlazyloadscript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script type="rocketlazyloadscript">
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/7725849/ELLEMAN-Homepage-0', [972,254], 'div-gpt-ad-1574926559165-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-Homepage-1', [972,254], 'div-gpt-ad-1574925113489-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-Homepage-2', [972,254], 'div-gpt-ad-1574925161580-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-Homepage-3', [972,254], 'div-gpt-ad-1574925206547-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-Homepage-4', [972,254], 'div-gpt-ad-1574925238085-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-ARTICLE-TOP-1', [728,90], 'div-gpt-ad-1574925266364-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-mobile-Homepage-0', [300,250], 'div-gpt-ad-1574925597131-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-mobile-Homepage-1', [300,250], 'div-gpt-ad-1574925542824-0 ').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-mobile-Homepage-2', [300,250], 'div-gpt-ad-1574925622246-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-mobile-Homepage-3', [300,250], 'div-gpt-ad-1574925650480-0').addService(googletag.pubads());googletag.defineSlot('/7725849/ELLEMAN-mobile-Homepage-4', [300,250], 'div-gpt-ad-1574925677438-0').addService(googletag.pubads());googletag.defineSlot('/7725849/elleman_teads_in_read_1x1', [300,300], 'div-gpt-ad-1630999932701-0').addService(googletag.pubads());            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            // C) Enable lazy loading with...
+            googletag.pubads().enableLazyLoad({
+                // Fetch slots within 3 viewports.
+                fetchMarginPercent: 300,
+                // Render slots within 2 viewports.
+                renderMarginPercent: 300,
+                // Double the above values on mobile, where viewports are smaller
+                // and users tend to scroll faster.
+                mobileScaling: 2.0
+            });
+            googletag.enableServices();
+        });
+    </script>
+
+</head>
+
+<body class="post-template-default single single-post postid-73695 single-format-standard" >
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJD36HK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="page-wrapper">
+        <div class="hidden-sm hidden-xs">
+          <header>
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav>
+                        <ul class="nav-share pull-left">
+                            <li><a href="http://www.elle.vn/" target="_blank"><i class="ico ico-logo-elle"></i></a></li>
+                            <li><a href="https://www.elleman.vn"><i class="ico ico-logo-elleman"></i></a></li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/elle-man-360/tap-chi/">Tạp chí</a></li>
+                            <li><a rel="nofollow" id='newsletter_popup' style="font-weight: bold;cursor: pointer;">Newsletter</a></li>
+                            <li><a id="redirect_to_ellevn_datbao" rel="nofollow" href="http://www.elle.vn/dat-bao/">Đặt báo</a></li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/gioi-thieu/">Giới thiệu</a></li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/lien-he/">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="center-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4" style="margin-top: 10px">
+                    <ul class="social-share">
+                        <li><span>Liên kết với chúng tôi:</span></li>
+                        <li><a href="https://www.facebook.com/elleman.vn" rel="nofollow" target="_blank" title="facebook"><i class="ico ico-face"></i></a></li>
+                        <li><a href="https://www.instagram.com/ellemanvietnam/ " rel="nofollow" target="_blank" title="Intagram"><i class="ico ico-intas"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/ellevietnam" rel="nofollow" target="_blank" title="youtube"><i class="ico ico-you"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="logo text-center">
+                        <a href="https://www.elleman.vn"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%200'%3E%3C/svg%3E" alt="logo" width="200" data-lazy-src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-man.png"><noscript><img src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-man.png" alt="logo" width="200"></noscript></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4" style="margin-top: 5px">
+                    <div class="search-header pull-right">
+                        <form action="https://www.elleman.vn/" method="get" role="search">
+                            <div class="form-group">
+                                <input type="search" placeholder="Nhập từ khóa tìm kiếm" name="s" value="">
+                                <button type="submit" class="btn btn-default"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div class="container">
+            <nav>
+                <ul class="navigation "><li><a href="https://www.elleman.vn" >Trang chủ</a></li><li><a href="http://www.elle.vn/elle-network/" target="_blank">Elle Network</a><ul class="sub-menu"><li><a href="http://www.elle.vn/elle-network/star/" title="Nhân vật">Nhân vật</a></li><li><a href="http://www.elle.vn/elle-network/brand/" title="Thương hiệu">Thương hiệu</a></li></ul></li><li><a href="https://www.elleman.vn/style-guide/" >Style Guide</a></li><li class="active"><a href="https://www.elleman.vn/phong-do/" >Phong độ</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phong-do/thoi-trang/" title="Xu hướng">Xu hướng</a></li><li><a href="https://www.elleman.vn/phong-do/phong-cach/" title="Phong cách">Phong cách</a></li><li><a href="https://www.elleman.vn/phong-do/cham-soc-ca-nhan/" title="Chăm sóc cá nhân">Chăm sóc cá nhân</a></li><li><a href="https://www.elleman.vn/phong-do/suc-khoe/" title="Sức khỏe">Sức khỏe</a></li></ul></li><li><a href="https://www.elleman.vn/phong-cach-song/" >Phong cách sống</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phong-cach-song/ky-nang/" title="Kỹ năng">Kỹ năng</a></li><li><a href="https://www.elleman.vn/phong-cach-song/thu-choi/" title="Thú chơi">Thú chơi</a></li><li><a href="https://www.elleman.vn/phong-cach-song/van-hoa-giai-tri/" title="Văn hoá – Giải trí">Văn hoá – Giải trí</a></li></ul></li><li><a href="https://www.elleman.vn/phai-dep/" >Phái đẹp</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phai-dep/hot-women/" title="Hot women">Hot women</a></li><li><a href="https://www.elleman.vn/phai-dep/tam-ly-tinh-yeu/" title="Tâm lý – Tình Yêu">Tâm lý – Tình Yêu</a></li></ul></li><li><a href="https://www.elleman.vn/elle-man-360/" >ELLE Man 360</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/elle-man-360/tap-chi/" title="Tạp chí">Tạp chí</a></li><li><a href="https://www.elleman.vn/elle-man-360/tin-tuc/" title="Tin tức">Tin tức</a></li></ul></li><li class="line"  id="line_menu"><i class="ico-line"></i></li></ul>            </nav>
+        </div>
+    </div>
+            <div class="container">
+            <div class="site-breadcrumb"><span><span><a href="https://www.elleman.vn/" >Trang chủ</a> / <span><a href="https://www.elleman.vn/phong-do" >Phong độ</a> / <span><a href="https://www.elleman.vn/phong-do/phong-cach" >Phong cách</a> / <span class="breadcrumb_last" aria-current="page">10 thương hiệu đồ vest nam đẳng cấp nhất</span></span></span></span></span></div>        </div>
+    </header> 
+        </div>
+        <div class="hidden-md hidden-lg">
+            <div id="mobile_menu_overlay" class="overlay--menu">
+  <a href="javascript:void(0)" class="closebtn" id="close_overlay_menu">&times;</a>
+  <div class="overlay--menu-content">
+  <div class="search-header">
+        <form action="https://www.elleman.vn/" method="get" role="search">
+            <div class="form-group">
+                <input type="search" placeholder="Nhập từ khóa tìm kiếm" name="s" value="">
+                <button type="submit" class="btn btn-default"></button>
+            </div>
+        </form>
+    </div>
+
+    <div class="left-overlay-items">
+        <a href="http://www.elle.vn/" target="_blank"><i class="ico ico-logo-elle"></i></a>
+        <a href="https://www.elleman.vn"><i class="ico ico-logo-elleman"></i></a>
+        <a rel="nofollow" href="https://www.elleman.vn/elle-man-360/tap-chi/">Tạp chí</a>
+        <a rel="nofollow" id='overlay_newsletter_popup' style="font-weight: bold;cursor: pointer;">Newsletter</a>
+        <a id="redirect_to_ellevn_datbao" rel="nofollow" href="http://www.elle.vn/dat-bao/">Đặt báo</a>
+        <a rel="nofollow" href="https://www.elleman.vn/gioi-thieu/">Giới thiệu</a>
+        <a rel="nofollow" href="https://www.elleman.vn/lien-he/">Liên hệ</a>
+    </div>
+    <div class="right-overlay-items">
+        <ul class="navigation "><li><a href="https://www.elleman.vn" >Trang chủ</a></li><li><a href="http://www.elle.vn/elle-network/" target="_blank">Elle Network</a><ul class="sub-menu"><li><a href="http://www.elle.vn/elle-network/star/" title="Nhân vật">Nhân vật</a></li><li><a href="http://www.elle.vn/elle-network/brand/" title="Thương hiệu">Thương hiệu</a></li></ul></li><li><a href="https://www.elleman.vn/style-guide/" >Style Guide</a></li><li class="active"><a href="https://www.elleman.vn/phong-do/" >Phong độ</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phong-do/thoi-trang/" title="Xu hướng">Xu hướng</a></li><li><a href="https://www.elleman.vn/phong-do/phong-cach/" title="Phong cách">Phong cách</a></li><li><a href="https://www.elleman.vn/phong-do/cham-soc-ca-nhan/" title="Chăm sóc cá nhân">Chăm sóc cá nhân</a></li><li><a href="https://www.elleman.vn/phong-do/suc-khoe/" title="Sức khỏe">Sức khỏe</a></li></ul></li><li><a href="https://www.elleman.vn/phong-cach-song/" >Phong cách sống</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phong-cach-song/ky-nang/" title="Kỹ năng">Kỹ năng</a></li><li><a href="https://www.elleman.vn/phong-cach-song/thu-choi/" title="Thú chơi">Thú chơi</a></li><li><a href="https://www.elleman.vn/phong-cach-song/van-hoa-giai-tri/" title="Văn hoá – Giải trí">Văn hoá – Giải trí</a></li></ul></li><li><a href="https://www.elleman.vn/phai-dep/" >Phái đẹp</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/phai-dep/hot-women/" title="Hot women">Hot women</a></li><li><a href="https://www.elleman.vn/phai-dep/tam-ly-tinh-yeu/" title="Tâm lý – Tình Yêu">Tâm lý – Tình Yêu</a></li></ul></li><li><a href="https://www.elleman.vn/elle-man-360/" >ELLE Man 360</a><ul class="sub-menu"><li><a href="https://www.elleman.vn/elle-man-360/tap-chi/" title="Tạp chí">Tạp chí</a></li><li><a href="https://www.elleman.vn/elle-man-360/tin-tuc/" title="Tin tức">Tin tức</a></li></ul></li><li class="line"  id="line_menu"><i class="ico-line"></i></li></ul>    </div>
+
+    <div class="social-overlay-share">
+        <a href="https://www.facebook.com/elleman.vn" rel="nofollow" target="_blank" title="facebook"><i class="ico ico-face"></i></a>
+        <a href="https://www.instagram.com/ellemanvietnam/ " rel="nofollow" target="_blank" title="Intagram"><i class="ico ico-intas"></i></a>
+        <a href="https://www.youtube.com/user/ellevietnam" rel="nofollow" target="_blank" title="youtube"><i class="ico ico-you"></i></a>
+    </div>
+  </div>
+
+</div>
+
+<header>
+    <div class="center-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="logo text-center">
+                        <a href="https://www.elleman.vn"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%200'%3E%3C/svg%3E" alt="logo" width="200" data-lazy-src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-man.png"><noscript><img src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-man.png" alt="logo" width="200"></noscript></a>
+                    </div>
+                </div>
+                <div class="nav-menu open-btn">
+                    <span style="font-size:40px;cursor:pointer" id="open_overlay_menu">&#9776;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header> 
+        </div>
+              
+        <div id="page-content">
+            <div class="container">
+                <style>
+.newsletter-popup{
+  height: 100%;
+  width: 100%;
+  display:none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.newsletter-popup.white-popup-block{
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+}
+/* .overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+} */
+.popup-desk-bakg{
+  background-image: url("https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Background-01.jpg");
+  /* height: 550px;
+  width: 1100px;
+  margin-top: 10%; */
+}
+.mfp-content{
+  height: 100%;
+}
+.float-right{
+  float: right;
+}
+.newsletter-popup .closebtn {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #ccc;
+}
+.newsletter-popup a:hover, .newsletter-popup a:focus {
+  color: #fff;
+}
+.newsletter-popup a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+img.desk-logo {
+      display:block;
+  }
+img.mb-logo {
+    display:none;
+}
+@media (max-width: 992px) {
+  .popup-desk-bakg{
+    background-image: url("https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Background-03.jpg");
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
+  }
+  .float-right {
+    float: none;
+  }
+  .newsletter-popup a {font-size: 20px}
+  .newsletter-popup .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    color: #000;
+  }
+}
+</style>
+<!-- begin newseltter popup  -->
+<div id="newsletter-popup" class="newsletter-popup mfp-hide white-popup-block popup-desk-bakg">
+<a href="javascript:void(0)" class="closebtn" id="close_newsletter_popup">&times;</a>
+  <div class="full-height overlay-content">
+    <div id="newsletter-popup-message"></div>
+
+    <form action="#" method="POST" accept-charset="utf-8"  class="newsletter-popup__form clearfix full-height">
+
+      <div class="row no-free-space full-height">
+        <div class="col-md-6 float-right full-height flex-display">
+          <div class="no-free-space top-row-form-group">
+            <div class="newsletter-left-col">
+              <img class='desk-logo' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" srcset="" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Logo-05.png"><noscript><img class='desk-logo' src="https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Logo-05.png" alt="" srcset=""></noscript>
+              <img class='mb-logo' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" srcset="" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Logo2-05.png"><noscript><img class='mb-logo' src="https://www.elleman.vn/wp-content/uploads/2021/05/04/Newsletter-ELLEMan_Logo2-05.png" alt="" srcset=""></noscript>
+            </div>
+
+            <div id="first_email_input">
+              
+              <div class="form-group newsletter-email-lable">
+                <div class="newsletter-description">KẾT NỐI VỚI ELLE MAN! BẮT KỊP NHỊP ĐẬP THỜI TRANG, PHONG ĐỘ VÀ  PHONG CÁCH SỐNG</div>
+                <label for="Email" class="label-email">Nhập email của bạn bên dưới để nhận các bước:</label>
+                
+                <div class="newsletter-input-mail">
+                <span class="ico-newsletter-email"></span>
+                  <div class="inside-mail-input"><input id="subscriber_email" type="email" name="email" class="form-control newsletter-email" placeholder="Email của bạn" required />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div id="industry_listinng" class="industry-listing" >
+            <div class="form-group industry-group-title">
+              Bạn đang làm trong lĩnh vực nào?:
+            </div>
+            <!-- industry -->
+            <div class="select select--industry">
+                <style>
+  #industry_datbao_checklist.checklist, #industry_newsletter_checklist.checklist{
+      width:100% !important;
+      height: 10em !important;
+  }
+</style>
+<select name=industry_newsletter id=industry_newsletter multiple="multiple" size="15" required>
+    <option value="An toàn lao động">An toàn lao động </option>
+    <option value="Bác sĩ">Bác sĩ </option>
+    <option value="Bán hàng kỹ thuật">Bán hàng kỹ thuật </option>
+    <option value="Bán hàng">Bán hàng </option>
+    <option value="Bán sỉ/Bán lẻ">Bán sỉ/Bán lẻ</option>
+    <option value="Bảo hiểm">Bảo hiểm </option>
+    <option value="Bảo trì/Sửa chữa ">Bảo trì/Sữa chữa </option>
+    <option value="Bất động sản">Bất động sản </option>
+    <option value="Biên phiên dịch">Biên phiên dịch </option>
+    <option value="Cấp quản lí điều hành">Cấp quản lí điều hành </option>
+    <option value="Chứng khoán">Chứng khoán</option>
+    <option value="Cơ khí">Cơ khí </option>
+    <option value="Công nghệ cao">Công nghệ cao </option>
+    <option value="Dầu khí">Dầu khí </option>
+    <option value="Dệt may/Da giày">Dệt may/Da giày</option>
+    <option value="Dịch vụ khách hàng">Dịch vụ khách hàng</option>
+    <option value="Dược phẩm/Công nghệ sinnh học">Dược phẩm/Công nghệ sinnh học</option>
+    <option value="Dược sĩ">Dược sĩ</option>
+    <option value="Giáo dục/Đào tạo">Giáo dục/Đào tạo</option>
+    <option value="Hàng cao cấp">Hàng cao cấp"</option>
+    <option value="Hàng gia dụng">Hàng gia dụng</option>
+    <option value="Hàng hải">Hàng hải</option>
+    <option value="Hàng không/Du lịch">Hàng không/Du lịch </option>
+    <option value="Hàng tiêu dùng">Hàng tiêu dùng</option>
+    <option value="Hành chánh/Thư ký">Hành chánh/Thư ký</option>
+    <option value="Hoá học/Hoá Sinh">Hoá học/Hoá Sinh</option>
+    <option value="Hoạch định/Dự án">Hoạch định/Dự án</option>
+    <option value="In ấn/Xuấn bản">In ấn/Xuất bản </option>
+    <option value="Internet/Online Media">Internet/Online Media</option>
+    <option value="IT - Phần mềm">IT - Phần mềm </option>
+    <option value="IT - Phần cứng/Mạng">IT - Phần cứng/Mạng</option>
+    <option value="Kế toán">Kế toán </option>
+    <option value="Khác">Khác </option>
+    <option value="Kho vận">Kho vận </option>
+    <option value="Kiểm toán">Kiểm toán </option>
+    <option value="Kiến trúc/ Thiết kế nội thất">Kiến trúc/ Thiết kế nội thất </option>
+    <option value="Marketing">Marketing </option>
+    <option value="Mới tốt nghiệp">Mới tốt nghiệp </option>
+    <option value="Môi trường/ Xử lý chất thải">Môi trường/ Xử lý chất thải </option>
+    <option value="Mỹ thuật/ Nghệ thuật/ Thiết kế">Mỹ thuật/ Nghệ thuật/ Thiết kế </option>
+    <option value="Ngân hàng">Ngân hàng </option>
+    <option value="Người nước ngoài/ Việt kiều">Người nước ngoài/ Việt kiều </option>
+    <option value="Nhà hàng/ Khách sạn">Nhà hàng/ Khách sạn </option>
+    <option value="Nhân sự">Nhân sự </option>
+    <option value="Nông nghiệp/ Lâm nghiệp">Nông nghiệp/ Lâm nghiệp </option>
+    <option value="Overseas jobs">Overseas jobs </option>
+    <option value="Pháp lý">Pháp lý </option>
+    <option value="Phi chính phủ/ Phi lợi nhuận">Phi chính phủ/ Phi lợi nhuận </option>
+    <option value="QA/QC">QA/QC </option>
+    <option value="Quảng cáo/ Khuyến mãi/ Đối ngoại">Quảng cáo/ Khuyến mãi/ Đối ngoại </option>
+    <option value="Sản phẩm công nghiệp">Sản phẩm công nghiệp </option>
+    <option value="Sản xuất">Sản xuất </option>
+    <option value="Tài chính/ Đầu tư">Tài chính/ Đầu tư </option>
+    <option value="Thời trang">Thời trang </option>
+    <option value="Thời vụ/ Hợp đồng ngắn hạn">Thời vụ/ Hợp đồng ngắn hạn </option>
+    <option value="Thu mua/ Vật tư/ Cung vận">Thu mua/ Vật tư/ Cung vận </option>
+    <option value="Thực phẩm và đồ uống">Thực phẩm và đồ uống </option>
+    <option value="Trình dược viên">Trình dược viên </option>
+    <option value="Truyền hình/ Truyền thông/ Báo chí">Truyền hình/ Truyền thông/ Báo chí </option>
+    <option value="Tư vấn">Tư vấn </option>
+    <option value="Tự động hóa/ Ô tô">Tự động hóa/ Ô tô </option>
+    <option value="Vận chuyển/ Giao nhận">Vận chuyển/ Giao nhận </option>
+    <option value="Viễn thông">Viễn thông </option>
+    <option value="Xây dựng">Xây dựng </option>
+    <option value="Xuất nhập khẩu">Xuất nhập khẩu </option>
+    <option value="Y sĩ/ Hộ lý">Y sĩ, Hộ lý </option>
+    <option value="Y tế/ Chăm sóc sức khỏe">Y tế/ Chăm sóc sức khỏe </option>
+    <option value="Địa chất/ Khoáng sản">Địa chất/ Khoáng sản </option>
+    <option value="Điện lạnh/ Nhiệt lạnh">Điện lạnh/ Nhiệt lạnh </option>
+    <option value="Điện/ Điện tử">Điện/ Điện tử </option>
+  </select>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+var $ = jQuery.noConflict();
+jQuery(document).ready(function ($) {
+  $(function(){
+    $industryOpt = $(industry_newsletter);
+    $industryOpt.multiselect({
+        addSearchBox: true,
+        addActionBox: true,
+        animateSearch: 'normal', // Can be 'normal', 'slow', 'fast', or int number
+        searchBoxText: 'Bạn đang làm ngành nghề nào?',
+        showCheckboxes: false,
+        preferIdOverName: true,
+        overwriteName: true,
+        showSelectedItems: true,
+        submitDataAsArray: true,
+        cssBlurred: 'input input--multiselect',
+        cssFocused: 'focused--inndustry',
+
+    });
+  });
+})
+});</script>            </div>
+            </div>
+
+            <div id="checkbox_form_group">
+              <div class="checkbox-group-title">
+                Bạn muốn nhận thông tin mới nhất từ ELLE theo chủ đề:
+              </div>
+              <div class="checkbox-group-newsletter">
+                
+                <div class="checkbox">
+                  <input class="checkbox-custom" type="checkbox" name="fashion" id="fashion" checked>
+                  <label class="checkbox-custom-label" for="fashion"> Fashion</label>
+                </div>
+              
+                <div class="checkbox">
+                  <input class="checkbox-custom" type="checkbox" name="grooming" id="grooming" checked>
+                  <label class="checkbox-custom-label" for="grooming"> Grooming</label>
+                </div>
+                <div class="checkbox">
+                  <input class="checkbox-custom" type="checkbox" name="entertainment" id="entertainment" checked>
+                  <label class="checkbox-custom-label" for="entertainment"> Sports & Entertainment</label>
+                </div>
+                <div class="checkbox">
+                  <input class="checkbox-custom" type="checkbox" name="celebrities" id="celebrities" checked>
+                  <label class="checkbox-custom-label" for="celebrities"> Celebrities</label>
+                </div>
+                <div class="checkbox">
+                  <input class="checkbox-custom" type="checkbox" name="all_in_one" id="all_in_one" checked>
+                  <label class="checkbox-custom-label" for="all_in_one"> Highlights</label>
+                </div>
+                
+              </div>
+            </div>
+            
+
+            <div class="btn-submit-newsletter">
+              <a type="button" id="newsletter_submit_email" class="newsletter-submit-btn">Tiếp tục</a>
+              <a type="button" id="newsletter_submit_favorite" class="newsletter-submit-btn">Tiếp tục</a>
+              <input type="submit" id="newsletter_submit_form" class="newsletter-submit-btn" value="Theo dõi">
+              <div id="reg_js_img"><i class="fa fa-spinner" aria-hidden="true"></i></div>
+              
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      
+    </form>
+
+  </div>
+</div>
+<!-- end newseltter popup -->
+<script type="rocketlazyloadscript">
+
+</script>                <div class="row">
+    <div class="col-xs-12 col-md-8">
+        <div class="line-red">&nbsp;</div>
+        <article>
+            <div id="rNewsStreaming">
+                <div class="block-detail" itemscope itemtype="http://schema.org/Article" id="post-73695">
+                <!-- Top Ads banner  -->
+                    <div class="row">
+                        <div class="col-md-12 hidden-sm hidden-xs">
+                            <div id='div-gpt-ad-1574925266364-0' style='height:90px; width:728px; margin-left: auto; margin-right: auto;'><script type="rocketlazyloadscript">googletag.cmd.push(function() { googletag.display('div-gpt-ad-1574925266364-0'); });</script></div>                        </div>
+                    </div>
+                    <!-- end Top Ads banner  -->
+                    <h1>10 thương hiệu đồ vest nam đẳng cấp nhất</h1>
+                    
+<div class="info-detail">
+    <div class="date">26/08/2015, 22:10 PM</div>
+    <!-- <div class="number-cm"><a href="javascript:void(0)" data-url="coment-face"><i class="ico ico-cm"></i><fb:comments-count href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat"/></fb:comments-count> bình luận</a></div>
+    <div class="like-fb">
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="78" data-show-faces="false" data-href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat">
+        </div>
+    </div> -->
+    <!-- <div class="social-detail pull-right">
+        <ul>
+            <li>
+                <a target="_blank" title="Chia sẻ qua Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" rel="nofollow">
+                    <i class="ico ico-face-dt"></i>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" title="Chia sẻ qua Twitter" href="https://twitter.com/intent/tweet?source=webclient&text=https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat+10 thương hiệu đồ vest nam đẳng cấp nhất" rel="nofollow">
+                    <i class="ico ico-twi-dt"></i></a>
+            </li>
+            <li>
+                <a target="_blank" title="Chia sẻ qua Google+" href="https://plus.google.com/share?url={https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat}" rel="nofollow">
+                    <i class="ico ico-gg-dt"></i>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" title="Chia sẻ qua email" href="mailto:?Subject=10 thương hiệu đồ vest nam đẳng cấp nhất&body=Đến một lúc nào đó khi bạn muốn đầu tư cho chính mình một bộ đồ vest cao cấp với chất liệu vải thượng hạng và kỹ thuật cắt may tinh xảo nhất, đây sẽ là 10 thương hiệu đồ vest nam nổi tiếng bạn cần biết.%0D%0A%0D%0Ahttps://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" rel="nofollow">
+                    <i class="ico ico-mail-dt"></i>
+                </a>
+            </li>
+        </ul>
+    </div> -->
+    <div class="clearfix"></div>
+</div>                    <div class="detail-main">
+                        <div class="box-detail">
+                            <div class="excerpt"><p>Đến một lúc nào đó khi bạn muốn đầu tư cho chính mình một bộ đồ vest cao cấp với chất liệu vải thượng hạng và kỹ thuật cắt may tinh xảo nhất, đây sẽ là 10 thương hiệu đồ vest nam nổi tiếng bạn cần biết.</p></div>
+                            <p><p>Khi bạn muốn chọn cho mình bộ đồ vest nam vừa vặn nhất, tiêu chí về kích thước, chất liệu và phong cách cá nhân nên được đưa lên đầu. Tuy nhiên, thương hiệu của bộ đồ vest đó cũng không kém phần quan trọng. Mỗi một thương hiệu là một sự khẳng định về đẳng cấp và phong cách của chính bạn.</p><p>Danh sách 10 thương hiệu đồ vest nam cao cấp và nổi tiếng nhất sẽ cho bạn một cái nhìn tổng quan về <a href="http://www.elleman.vn/phong-cach/cach-chon-ao-vest-nam-hoan-hao" target="_blank">thế giới của những bộ vest dành cho các quí ông</a>.</p><p><strong>1. CANALI</strong></p><figure id="attachment_73696" aria-describedby="caption-attachment-73696" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali.jpg"><img class="wp-image-73696 size-medium" title="thương hiệu đồ vest nam Canali" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20238'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Canali" width="475" height="238" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali-475x238.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali.jpg 800w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali-475x238.jpg" /><noscript><img class="wp-image-73696 size-medium" title="thương hiệu đồ vest nam Canali" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali-475x238.jpg" alt="thương hiệu đồ vest nam Canali" width="475" height="238" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali-475x238.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Canali.jpg 800w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73696" class="wp-caption-text">Đồ vest của Canali thường sử dụng những loại chất liệu tuyệt hảo, thường là từ các loại vải sợi tự nhiên.</figcaption></figure><p>Canali góp mặt trong danh sách 10 thương hiệu đồ vest nam đẳng cắp nhờ những thiết kế tinh tế và việc sử dụng những loại chất liệu tuyệt hảo, thường là từ các loại vải sợi tự nhiên. Dù các bộ vest của Canali được cắt may rất thời trang, các quí ông ưa thích vẻ đẹp của các bộ vest truyền thống vẫn có thể tìm được bản thân mình trong các thiết kế của Canali. Vẻ đẹp của Canali sẽ thích hợp với không khí làm việc ban ngày nhưng cũng khiến người mặc trở nên nổi bật tại những buổi tiệc tùng ban đêm.</p><p><strong>2. BRIONI</strong></p><figure id="attachment_73697" aria-describedby="caption-attachment-73697" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni.jpg"><img class="wp-image-73697 size-medium" title="thương hiệu đồ vest nam cao cấp Brioni" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20281'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam cao cấp Brioni" width="475" height="281" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni-475x281.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni.jpg 1210w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni-475x281.jpg" /><noscript><img class="wp-image-73697 size-medium" title="thương hiệu đồ vest nam cao cấp Brioni" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni-475x281.jpg" alt="thương hiệu đồ vest nam cao cấp Brioni" width="475" height="281" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni-475x281.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Brioni.jpg 1210w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73697" class="wp-caption-text">Bí quyết đằng sau đẳng cấp về chất lượng của Brioni nằm ở hệ thống kiểm soát chất lượng cực kỳ chặt chẽ.</figcaption></figure><p>Brioni nổi tiếng là một trong những nơi sản xuất ra những bộ vest chất lượng nhất thế giới. Bí quyết đằng sau đẳng cấp về chất lượng của Brioni nằm ở hệ thống kiểm soát chất lượng cực kỳ chặt chẽ. Không chỉ vậy, kể cả những con cừu cho ra sợi len làm nên các bộ vest cao cấp đó cũng được chăm sóc trong môi trường có cảnh quan tự nhiên và điều kiện tốt nhất. Hơn nữa, kỹ nghệ thủ công của người Ý và cách cắt vải là một yếu tố rất lớn tạo nên vẻ đẹp của Brioni. Vì vậy, cho dù giá của những bộ suit của Brioni có thể rất cao, nhưng bất kỳ ai chịu đầu tư cho một bộ vest &#8220;để đời&#8221; sẽ không bao giờ phải hối hận về quyết định của mình.</p><p><strong>3. ZEGNA</strong></p><figure id="attachment_73698" aria-describedby="caption-attachment-73698" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna.jpg"><img class="wp-image-73698 size-medium" title="thương hiệu đồ vest nam Zegna" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20219'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Zegna" width="475" height="219" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna-475x219.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna.jpg 1880w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna-475x219.jpg" /><noscript><img class="wp-image-73698 size-medium" title="thương hiệu đồ vest nam Zegna" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna-475x219.jpg" alt="thương hiệu đồ vest nam Zegna" width="475" height="219" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna-475x219.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Zegna.jpg 1880w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73698" class="wp-caption-text">Đồ vest nam của Zegna thể hiện sự trịnh trọng và lịch lãm của người đàn ông thành đạt</figcaption></figure><p>Những bộ đồ vest nam của Zegna luôn nổi tiếng với thiết kế thời thượng nhất, là những bộ suit thanh thoát được may đo một cách hoàn hảo. Chất lượng và sự quan tâm đến từng chi tiết nhỏ cũng là yếu tố mang lại thành công cho Zegna. Nếu bạn mua một bộ vest của Zegna thì bạn có thể yên tâm chúng sẽ không thể lỗi mốt trong nhiều năm tới.Những người đặt nặng vẻ chuyên nghiệp và hiện đại trên những bộ vest của mình sẽ nhận thấy Zegna là một lựa chọn đúng đắn.</p><div class="another-post">
+                  <a href="https://www.elleman.vn/phong-cach/cac-quy-ong-mac-ao-vest-nam-dep-nhat-tai-wimbledon-2015" title="Các quý ông mặc áo vest nam đẹp nhất tại Wimbledon"  class="bg" target="_blank"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Các quý ông mặc áo vest nam đẹp nhất tại Wimbledon" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/07/13/ao-vest-nam-dep-david-beckham-wimbledon1-313x313.jpg" /><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/07/13/ao-vest-nam-dep-david-beckham-wimbledon1-313x313.jpg" alt="Các quý ông mặc áo vest nam đẹp nhất tại Wimbledon" /></noscript></a>
+                    <div class="desc">
+                        <div class="title">
+                          <a href="https://www.elleman.vn/phong-cach/cac-quy-ong-mac-ao-vest-nam-dep-nhat-tai-wimbledon-2015" title="Các quý ông mặc áo vest nam đẹp nhất tại Wimbledon"  target="_blank"  class="cl-red">Các quý ông mặc áo vest nam đẹp nhất tại Wimbledon</a>
+                          </div>
+                        <div class="desc-small">
+                          <p>Tại giải thi đấu quần vợt Wimbledon vừa kết thúc, khi mọi ánh mắt đều dồn về sân thi đấu thì các BTV của ELLEMAN lại hướng sự chú ý về phía khán...</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div><p><strong>4. RAVAZZOLO</strong></p><figure id="attachment_73699" aria-describedby="caption-attachment-73699" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo.jpg"><img class="wp-image-73699 size-medium" title="thương hiệu đồ vest nam Ravazzollo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20270'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Ravazzollo" width="475" height="270" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo-475x270.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo.jpg 1586w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo-475x270.jpg" /><noscript><img class="wp-image-73699 size-medium" title="thương hiệu đồ vest nam Ravazzollo" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo-475x270.jpg" alt="thương hiệu đồ vest nam Ravazzollo" width="475" height="270" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo-475x270.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Ravazzollo.jpg 1586w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73699" class="wp-caption-text">Nhiều người vẫn thường ví von Ravazzolo có chất lượng như Brioni, may đo đẹp như Canali và giá cạnh tranh như Zegna.</figcaption></figure><p>Top 10 thương hiệu đồ vest nổi tiếng thế giới không thể thiếu Ravazzolo với phong cách thiết kế độc đáo và chất lượng tuyệt đỉnh. Không chỉ thu hút các quý ông sành thời trang nhờ nhãn mác &#8220;Made in Italy&#8221;, những bộ vest của Ravazzolo được thiết kế với tất cả sự quan tâm đến từng chi tiết một cách đáng kinh ngạc trên kiểu dáng Italy cổ điển. Hơn nữa, giá của những bộ vest Ravazzolo lại tương đối &#8220;dễ chịu&#8221; hơn so với những thương hiệu đồ vest nổi tiếng khác.</p><p>Nhiều người vẫn thường ví von Ravazzolo có chất lượng như Brioni, may đo đẹp như Canali và giá cạnh tranh như Zegna. Nếu bạn đang tìm kiếm đồ vest nam với những tiêu chí trên, đừng bỏ qua Ravazzolo.</p><p><strong>5. HUGO BOSS</strong></p><figure id="attachment_73700" aria-describedby="caption-attachment-73700" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss.jpg"><img class="wp-image-73700 size-medium" title="thương hiệu đồ vest nam Hugo Boss" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20205'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Hugo Boss" width="475" height="205" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss-475x205.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss.jpg 1000w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss-475x205.jpg" /><noscript><img class="wp-image-73700 size-medium" title="thương hiệu đồ vest nam Hugo Boss" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss-475x205.jpg" alt="thương hiệu đồ vest nam Hugo Boss" width="475" height="205" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss-475x205.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hugo-Boss.jpg 1000w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73700" class="wp-caption-text">Hugo Boss có những bộ vest mang thiết kế sống mãi với thời gian</figcaption></figure><p>Có lẽ Hugo Boss không còn xa lạ gì với phái mạnh thông qua các sản phẩm thời trang và nước hoa quá nổi tiếng. Nhưng chúng ta sẽ chỉ đề cập đến các bộ vest của Hugo Boss ở đây. Hugo Boss có những bộ vest mang thiết kế sống mãi với thời gian, ẩn chứa cả sự thanh lịch lẫn sự ấn tượng cần có cho những buổi tiệc tùng.Với các quí ông muốn tìm kiếm một thiết kế hiện đại nhưng vẫncó điểm nhấncổ điển, Hugo Boss sẽ đem đến những lựa chọn tuyệt vời.</p><p><strong>6. HICKEY FREEMAN</strong></p><figure id="attachment_73701" aria-describedby="caption-attachment-73701" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman.jpg"><img class="wp-image-73701 size-medium" title="thương hiệu đồ vest nam cao cấp Hickey Freeman" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20671'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam cao cấp Hickey Freeman" width="475" height="671" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman-475x671.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman.jpg 504w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman-475x671.jpg" /><noscript><img class="wp-image-73701 size-medium" title="thương hiệu đồ vest nam cao cấp Hickey Freeman" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman-475x671.jpg" alt="thương hiệu đồ vest nam cao cấp Hickey Freeman" width="475" height="671" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman-475x671.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Hickey-Freeman.jpg 504w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73701" class="wp-caption-text">Thiết kế của Hickey Freeman hi sinh sự thoải mái để tối đa hóa các đường cắt tôn dáng của người mặc.</figcaption></figure><p>Đây có lẽ không phải là cái tên phổ biến với nhiều người, nhưng những bộ vest của thương hiệu này có những dấu tích không hề nhỏ trong <a href="http://www.elleman.vn/phong-do/thoi-trang/" target="_blank">thế giới thời trang dành cho nam</a>. Bí quyết của Hickey Freeman nằm trong cách thiết kế và chất lượng cao cấp. Tương như các bộ vest của John Varvatos, thiết kế của Hickey Freeman hi sinh sự thoải mái để tối đa hóa các đường cắt tôn dáng và các nét đẹp hình thể của người mặc.</p><p>Vì vậy, những ai đang <a href="http://www.elleman.vn/phong-cach/6-cach-chon-ao-vest-cong-so-dinh-nhat" target="_blank">tìm kiếm một bộ suit ấn tượng với chất lượng cao cấp</a> và không có ý định diện suit đi làm, sẽ thấy Hickey Freeman là một lựa chọn hoàn hảo.</p><p><strong>7. JACK VICTOR</strong></p><figure id="attachment_73702" aria-describedby="caption-attachment-73702" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor.jpg"><img class="wp-image-73702 size-medium" title="Thương hiệu đồ vest nam Jack Victor" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20647'%3E%3C/svg%3E" alt="Thương hiệu đồ vest nam Jack Victor" width="475" height="647" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor-475x647.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor.jpg 1131w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor-475x647.jpg" /><noscript><img class="wp-image-73702 size-medium" title="Thương hiệu đồ vest nam Jack Victor" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor-475x647.jpg" alt="Thương hiệu đồ vest nam Jack Victor" width="475" height="647" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor-475x647.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Jack-Victor.jpg 1131w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73702" class="wp-caption-text">Những bộ vest nam của Jack Victro được làm nên từ những sợi vải tốt nhất của những thợ dệt lành nghề nhất</figcaption></figure><p>Chất lượng tuyệt hảo trong từng sợi chỉ là những gì cần biết đến đầu tiên về Jack Victor. Những bộ vest của hãng được làm nên từ những sợi vải tốt nhất của những thợ dệt lành nghề nhất và nổi tiếng nhất trên thế giới. Như Canali, các bộ vest Jack Victor góp mặt trong danh sách này nhờ sự hoàn hảo trong từng chi tiết. Với thiết kế thanh lịch và cổ điển, các quí ông có thể tự tin vận lên mình bộ vest của Jack Victor và tham dự bất cứ sự kiện hay dịp lễ nào.</p><div class="another-post">
+                  <a href="https://www.elleman.vn/phong-cach/10-mon-do-thoi-trang-nam-gioi-can-dau-tu" title="10 món đồ thời trang nam giới cần đầu tư"  class="bg" target="_blank"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="10 món đồ thời trang nam giới cần đầu tư" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/08/24/thoi-trang-nam-gioi-ao-len-313x313.jpg" /><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/08/24/thoi-trang-nam-gioi-ao-len-313x313.jpg" alt="10 món đồ thời trang nam giới cần đầu tư" /></noscript></a>
+                    <div class="desc">
+                        <div class="title">
+                          <a href="https://www.elleman.vn/phong-cach/10-mon-do-thoi-trang-nam-gioi-can-dau-tu" title="10 món đồ thời trang nam giới cần đầu tư"  target="_blank"  class="cl-red">10 món đồ thời trang nam giới cần đầu tư</a>
+                          </div>
+                        <div class="desc-small">
+                          <p>Danh sách 10 món đồ thời trang nam giới cần đầu tư dưới đây sẽ giúp bạn dễ dàng sếp thứ tự ưu tiên và lên kế hoạch cho ngân sách mua sắm của mình.</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div><p><strong>8. COPPLEY</strong></p><figure id="attachment_73703" aria-describedby="caption-attachment-73703" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley.jpg"><img class="wp-image-73703 size-medium" title="thương hiệu đồ vest nam Coppley" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20297'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Coppley" width="475" height="297" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley-475x297.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley.jpg 959w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley-475x297.jpg" /><noscript><img class="wp-image-73703 size-medium" title="thương hiệu đồ vest nam Coppley" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley-475x297.jpg" alt="thương hiệu đồ vest nam Coppley" width="475" height="297" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley-475x297.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Coppley.jpg 959w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73703" class="wp-caption-text">Các bộ vest của Coppley lại mang đậm chất Anh Quốc với kiểu thiết kế khá cổ điển và thanh lịch</figcaption></figure><p>Cũng là một tên tuổi không mới lạ trong thế giới thời trang nhờ vào chất lượng cao cấp và các thiết kế ấn tượng của mình, Coppley là một cái tên bất kỳ ai cũng nên quan tâm. Tuy đại bản doanh được đặt tại Canada, hầu hết các bộ vest của Coppley lại mang đậm chất Anh Quốc trong thiết kế, từ đó trở thành lựa chọn hoàn hảo với những người ưa chuộng phong cách cổ điển. Dịch vụ của Coppley cũng rất ấn tượng khi đem đến lựa chọn cho người mua một bộ vest may đo chất lượng cao cấp chỉ trong 12 ngày làm việc.</p><p><strong>9. ARMANI</strong></p><figure id="attachment_73704" aria-describedby="caption-attachment-73704" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani.jpg"><img class="wp-image-73704 size-medium" title="thương hiệu đồ vest nam Armani" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20612'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Armani" width="475" height="612" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani-475x612.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani.jpg 500w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani-475x612.jpg" /><noscript><img class="wp-image-73704 size-medium" title="thương hiệu đồ vest nam Armani" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani-475x612.jpg" alt="thương hiệu đồ vest nam Armani" width="475" height="612" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani-475x612.jpg 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Armani.jpg 500w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73704" class="wp-caption-text">Armani mang đến nhiều lựa chọn đồ vest nam với nhiều chất liệu, màu sắc khác nhau</figcaption></figure><p>Nếu bạn đam mê sự tinh tế trong các thiết kế thời trang của Ý, Armani sẽ thu hút bạn trên từng chi tiết. Các bộ vest của Armani xuất hiện với đủ các loại chất liệu cung cấp cho người mua rất nhiều lựa chọn và phong cách khác nhau. Với tính linh hoạt và sự tinh tế trong phong cách thiết kế, việc Armani xuất hiện trong danh sách này là một điều đương nhiên.</p><p><strong>10. GUCCI</strong></p><figure id="attachment_73705" aria-describedby="caption-attachment-73705" style="width: 475px" class="wp-caption alignnone"><a href="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci.png"><img class="wp-image-73705 size-medium" title="thương hiệu đồ vest nam Gucci" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20475%20315'%3E%3C/svg%3E" alt="thương hiệu đồ vest nam Gucci" width="475" height="315" data-lazy-srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci-475x315.png 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci.png 798w" data-lazy-sizes="(max-width: 475px) 100vw, 475px" data-lazy-src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci-475x315.png" /><noscript><img class="wp-image-73705 size-medium" title="thương hiệu đồ vest nam Gucci" src="http://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci-475x315.png" alt="thương hiệu đồ vest nam Gucci" width="475" height="315" srcset="https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci-475x315.png 475w, https://www.elleman.vn/wp-content/uploads/2015/07/30/vest-nam-cao-cap-Gucci.png 798w" sizes="(max-width: 475px) 100vw, 475px" /></noscript></a><figcaption id="caption-attachment-73705" class="wp-caption-text">Cái tên Gucci là một lời khẳng định đẳng cấp và gu thời trang của người mặc.</figcaption></figure><p>Nếu bạn chấp nhận đầu tư một số tiền không nhỏ cho một bộ vest, Gucci có thể là lựa chọn đúng đắn nhất cho bạn. Không chỉ vậy, sự xuất hiện của cái tên Gucci là một lời khẳng định đẳng cấp và gu thời trang của người mặc. Điều này đặc biệt hữu dụng nếu bạn cần gây ấn tượng cho một ai đó, ví dụ như đối tác của bạn.</p><p>Sở hữu sự tinh tế đặc trưng của phong cách thời trang của Ý, Gucci cũng mang đến những thiết kế theo các xu hướng thời trang mới nhất. Vì thế, những bộ suit bó sát lấy cơ thể và chiếc quần ngắn đến mắt cá chân là những hình ảnh thường thấy trong các bộ sưu tập của Gucci. Còn về chất liệu, với tầm cỡ của Gucci, bạn sẽ không thấy thiếu một lựa chọn nào khi tìm chomìnhmột bộ suit hoàn hảo.</p></p>
+                                <div class="info-detail">
+        <div class="number-cm"><a href="javascript:void(0)" data-url="coment-face"><i class="ico ico-cm"></i><fb:comments-count href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat"/></fb:comments-count> bình luận</a></div>
+        <div class="like-fb">
+            <div class="fb-like" data-href="https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" data-send="false" data-layout="button_count" data-width="78" data-show-faces="false"></div>
+        </div>
+        <div class="social-detail pull-right">
+            <ul>
+                <li>
+                    <a target="_blank" title="Chia sẻ qua Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" rel="nofollow">
+                        <i class="ico ico-face-dt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" title="Chia sẻ qua Twitter" href="https://twitter.com/intent/tweet?source=webclient&text=https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat+10 thương hiệu đồ vest nam đẳng cấp nhất" rel="nofollow">
+                        <i class="ico ico-twi-dt"></i></a></li>
+                <li>
+                    <a target="_blank" title="Chia sẻ qua Google+" href="https://plus.google.com/share?url={https://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat}" rel="nofollow">
+                        <i class="ico ico-gg-dt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" title="Chia sẻ qua email" href="mailto:?Subject=10 thương hiệu đồ vest nam đẳng cấp nhất&body=Đến một lúc nào đó khi bạn muốn đầu tư cho chính mình một bộ đồ vest cao cấp với chất liệu vải thượng hạng và kỹ thuật cắt may tinh xảo nhất, đây sẽ là 10 thương hiệu đồ vest nam nổi tiếng bạn cần biết.%0D%0A%0D%0Ahttps://www.elleman.vn/phong-cach/10-thuong-hieu-do-vest-nam-dang-cap-nhat" rel="nofollow">
+                        <i class="ico ico-mail-dt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="tag-name">
+        <span class="note">TAG:</span>
+        <a href="https://www.elleman.vn/tag/phong-cach-thoi-trang-nam">phong cach thoi trang nam</a><a href="https://www.elleman.vn/tag/the-gioi-thoi-trang-nam">the gioi thoi trang nam</a><a href="https://www.elleman.vn/tag/do-vest-nam">do vest nam</a><a href="https://www.elleman.vn/tag/ao-vest-nam-dep">ao vest nam dep</a><a href="https://www.elleman.vn/tag/thoi-trang-ao-vest">thoi trang ao vest</a>    </div>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </article>
+    </div>
+    <div id="sidebar" class="col-xs-12 col-md-4">
+
+      <div class="box-care">
+        <div class="title-main">
+            <h2>ĐƯỢC QUAN TÂM NHẤT</h2>
+        </div>
+        <ul class="list-best-care">
+                            <li>
+                    <span class="number">
+                        <i class="num-1"></i>
+                    </span>
+                    <div class="des-best">
+                                                <a href="https://www.elleman.vn/phong-cach/tip-quy-tac-phu-kien-nam" class="best-topic" title="Phụ kiện trang sức nam và 4 quy tắc styling quan trọng">Phụ kiện trang sức nam và 4 quy tắc styling quan trọng</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                            <li>
+                    <span class="number">
+                        <i class="num-2"></i>
+                    </span>
+                    <div class="des-best">
+                                                <a href="https://www.elleman.vn/phong-cach/elleman-style-calendar-loungewear" class="best-topic" title="ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội">ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                            <li>
+                    <span class="number">
+                        <i class="num-3"></i>
+                    </span>
+                    <div class="des-best">
+                                                <a href="https://www.elleman.vn/phong-cach/phoi-do-mau-be-nam-gioi" class="best-topic" title="Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp">Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                            <li>
+                    <span class="number">
+                        <i class="num-4"></i>
+                    </span>
+                    <div class="des-best">
+                                                <a href="https://www.elleman.vn/phong-cach/phoi-quan-kaki-mau-sac" class="best-topic" title="Quần kaki và tips phối đồ với những màu sắc kinh điển">Quần kaki và tips phối đồ với những màu sắc kinh điển</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                            <li>
+                    <span class="number">
+                        <i class="num-5"></i>
+                    </span>
+                    <div class="des-best">
+                                                <a href="https://www.elleman.vn/phong-cach/thoi-trang-cap-doi-u80-nguoi-duc" class="best-topic" title="Gu thời trang không tuổi của cặp đôi lão niên người Đức">Gu thời trang không tuổi của cặp đôi lão niên người Đức</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                    </ul>
+    </div>
+
+      <div class="box detail-more">
+        <div class="title-main">
+            <h2>XEM THÊM</h2>
+        </div>
+        <ul class="list-verti">
+                            <li>
+                    <a href="https://www.elleman.vn/phong-cach/hoc-phoi-do-theo-4-phong-cach-dan-ong-lich-lam" title="Học phối đồ theo 4 phong cách đàn ông lịch lãm" class="thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Học phối đồ theo 4 phong cách đàn ông lịch lãm" class="lazy" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2013/12/08/phong-cach-dan-ong-lich-lam-cua-james-yi-475x356.jpg"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2013/12/08/phong-cach-dan-ong-lich-lam-cua-james-yi-475x356.jpg" alt="Học phối đồ theo 4 phong cách đàn ông lịch lãm" class="lazy"></noscript>
+                    </a>
+                    <a href="https://www.elleman.vn/phong-cach/hoc-phoi-do-theo-4-phong-cach-dan-ong-lich-lam" class="title-small-verti" title="Học phối đồ theo 4 phong cách đàn ông lịch lãm">
+                        Học phối đồ theo 4 phong cách đàn ông lịch lãm                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.elleman.vn/phong-cach/8-cach-tao-phong-cach-an-mac-dep-cho-nam" title="8 cách tạo phong cách ăn mặc đẹp cho nam" class="thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="8 cách tạo phong cách ăn mặc đẹp cho nam" class="lazy" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/07/03/8-cách-tạo-phong-cách-ăn-mặc-đẹp-cho-namqư-475x267.png"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/07/03/8-cách-tạo-phong-cách-ăn-mặc-đẹp-cho-namqư-475x267.png" alt="8 cách tạo phong cách ăn mặc đẹp cho nam" class="lazy"></noscript>
+                    </a>
+                    <a href="https://www.elleman.vn/phong-cach/8-cach-tao-phong-cach-an-mac-dep-cho-nam" class="title-small-verti" title="8 cách tạo phong cách ăn mặc đẹp cho nam">
+                        8 cách tạo phong cách ăn mặc đẹp cho nam                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.elleman.vn/phong-cach/7-phong-cach-thoi-trang-streetstyle-noi-bat-cua-kanye-west" title="7 phong cách thời trang streetstyle nổi bật của Kanye West" class="thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="7 phong cách thời trang streetstyle nổi bật của Kanye West" class="lazy" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/07/12/phong-cach-thoi-trang-kanye-west-475x267.jpg"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/07/12/phong-cach-thoi-trang-kanye-west-475x267.jpg" alt="7 phong cách thời trang streetstyle nổi bật của Kanye West" class="lazy"></noscript>
+                    </a>
+                    <a href="https://www.elleman.vn/phong-cach/7-phong-cach-thoi-trang-streetstyle-noi-bat-cua-kanye-west" class="title-small-verti" title="7 phong cách thời trang streetstyle nổi bật của Kanye West">
+                        7 phong cách thời trang streetstyle nổi bật của Kanye West                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.elleman.vn/cham-soc-ca-nhan/tao-phong-cach-dan-ong-lich-lam-truoc-buoi-hen-ho" title="Tạo phong cách đàn ông lịch lãm trước buổi hẹn hò" class="thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Tạo phong cách đàn ông lịch lãm trước buổi hẹn hò" class="lazy" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/07/16/phong-cach-dan-ong-lich-lam-truoc-buoi-hen-475x267.jpg"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/07/16/phong-cach-dan-ong-lich-lam-truoc-buoi-hen-475x267.jpg" alt="Tạo phong cách đàn ông lịch lãm trước buổi hẹn hò" class="lazy"></noscript>
+                    </a>
+                    <a href="https://www.elleman.vn/cham-soc-ca-nhan/tao-phong-cach-dan-ong-lich-lam-truoc-buoi-hen-ho" class="title-small-verti" title="Tạo phong cách đàn ông lịch lãm trước buổi hẹn hò">
+                        Tạo phong cách đàn ông lịch lãm trước buổi hẹn hò                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.elleman.vn/phong-cach/10-mon-do-kinh-dien-cua-phong-cach-thoi-trang-nam" title="10 món đồ kinh điển của phong cách thời trang nam" class="thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="10 món đồ kinh điển của phong cách thời trang nam" class="lazy" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2015/07/20/phong-cach-thoi-trang-nam-elle-man-featured-image-475x267.jpg"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2015/07/20/phong-cach-thoi-trang-nam-elle-man-featured-image-475x267.jpg" alt="10 món đồ kinh điển của phong cách thời trang nam" class="lazy"></noscript>
+                    </a>
+                    <a href="https://www.elleman.vn/phong-cach/10-mon-do-kinh-dien-cua-phong-cach-thoi-trang-nam" class="title-small-verti" title="10 món đồ kinh điển của phong cách thời trang nam">
+                        10 món đồ kinh điển của phong cách thời trang nam                    </a>
+                </li>
+                    </ul>
+    </div>
+
+      <div class="box">
+      <div class="title-main">
+        <h2><a href="https://www.elleman.vn/elle-man-360/tap-chi/">Tạp chí</a></h2>
+      </div>
+
+      <a href="https://www.elleman.vn/tap-chi/ha-le-elle-man" class="bg-verti" title="Hà Lê - &quot;Remake&quot; để trở thành chính mình">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20313%200'%3E%3C/svg%3E" alt="Hà Lê - &quot;Remake&quot; để trở thành chính mình" width="313" data-lazy-src="https://www.elleman.vn/wp-content/uploads/2020/10/17/187096/rapper-ca-si-Ha-Le-elle-man-feature-image-475x267.jpg"><noscript><img src="https://www.elleman.vn/wp-content/uploads/2020/10/17/187096/rapper-ca-si-Ha-Le-elle-man-feature-image-475x267.jpg" alt="Hà Lê - &quot;Remake&quot; để trở thành chính mình" width="313"></noscript>
+      </a>
+      <a href="https://www.elleman.vn/tap-chi/ha-le-elle-man" title="Hà Lê - &quot;Remake&quot; để trở thành chính mình" class="title-big">Hà Lê - "Remake" để trở thành chính mình</a>
+    </div>
+  
+    <div class="box-tag-cloude">
+        <div id="text-2" class="widget_text">			<div class="textwidget"><a href='http://www.elleman.vn/'>Tạp chí thời trang nam</a><a href='http://www.elleman.vn/phong-do/thoi-trang/'>Phong cách thời trang nam</a><a href='http://www.elleman.vn/tag/cach-tap-the-hinh/'>Cách tập thể hình</a><a href='http://www.elleman.vn/tag/cach-lam-dep-cho-nam-gioi/'>Cách làm đẹp cho nam giới</a>
+<a href='http://www.elle.vn/chuyen-muc/phim-tinh-cam/'>phim tinh cam</a>
+</div>
+		</div></div>
+
+</div></div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="detail-newposts">
+    <div class="title-main">
+        <h2><a href="https://www.elleman.vn/phong-do/phong-cach">Bài viết mới nhất</a></h2>
+    </div>
+        <div class="list-horizo row">
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/phong-cach-ametora-nhat-ban" class="bg-verti" title="Phong cách Ametora – Hơi thở Mỹ trong dòng chảy lịch sử, văn hoá và thời trang Nhật Bản">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/08/24/199914/lich-su-phong-cach-ametora-elle-man-cover-2-475x267.jpeg" alt="Phong cách Ametora – Hơi thở Mỹ trong dòng chảy lịch sử, văn hoá và thời trang Nhật Bản" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/phong-cach-ametora-nhat-ban" class="title-big" title="Phong cách Ametora – Hơi thở Mỹ trong dòng chảy lịch sử, văn hoá và thời trang Nhật Bản">
+                    Phong cách Ametora – Hơi thở Mỹ trong dòng chảy lịch sử, văn hoá và thời trang Nhật Bản                </a>
+                                    <div class="des-small">
+                        Ametora không chỉ đơn thuần là một phong cách thời trang, mà còn là một bản khắc hoạ cho dòng chảy lịch sử đầy biến động của...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/tips-phong-cach-sprezzatura" class="bg-verti" title="​​7 tips tạo dựng phong cách Sprezzatura cho các quý ông">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/08/18/201078/feature_phong-cach-sprezzatura_elle-man_0821-475x267.jpg" alt="​​7 tips tạo dựng phong cách Sprezzatura cho các quý ông" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/tips-phong-cach-sprezzatura" class="title-big" title="​​7 tips tạo dựng phong cách Sprezzatura cho các quý ông">
+                    ​​7 tips tạo dựng phong cách Sprezzatura cho các quý ông                </a>
+                                    <div class="des-small">
+                        Phong cách Sprezzatura không dành cho những tay mơ, bởi không chỉ phải yêu thích classic menswear mà còn phải nắm vững kiến...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/phoi-quan-kaki-mau-sac" class="bg-verti" title="Quần kaki và tips phối đồ với những màu sắc kinh điển">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/09/08/202252/phoi-do-quan-kaki-mau-sac-elle-man-cover-1-475x267.jpeg" alt="Quần kaki và tips phối đồ với những màu sắc kinh điển" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/phoi-quan-kaki-mau-sac" class="title-big" title="Quần kaki và tips phối đồ với những màu sắc kinh điển">
+                    Quần kaki và tips phối đồ với những màu sắc kinh điển                </a>
+                                    <div class="des-small">
+                        Chắc không cần nói nhiều về quần kaki (quần chinos), bởi đây là một item quen thuộc trong tủ quần áo của hầu hết mọi người....                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/phoi-do-mau-be-nam-gioi" class="bg-verti" title="Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/09/07/202116/phoi-do-mau-be-beige-elle-man-cover-1-475x267.jpeg" alt="Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/phoi-do-mau-be-nam-gioi" class="title-big" title="Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp">
+                    Tips phối đồ với màu be (beige) để tạo nên những bộ outfit đẹp                </a>
+                                    <div class="des-small">
+                        Màu be (beige) là một gam màu cơ bản, quen thuộc và hầu như luôn hiện hữu trong tủ quần áo của cánh đàn ông bởi tính linh hoạt...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/thoi-trang-cap-doi-u80-nguoi-duc" class="bg-verti" title="Gu thời trang không tuổi của cặp đôi lão niên người Đức">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/04/27/192776/phong-cach-thoi-trang-cap-doi-u80-nguoi-Duc-elle-man-cover--475x267.jpeg" alt="Gu thời trang không tuổi của cặp đôi lão niên người Đức" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/thoi-trang-cap-doi-u80-nguoi-duc" class="title-big" title="Gu thời trang không tuổi của cặp đôi lão niên người Đức">
+                    Gu thời trang không tuổi của cặp đôi lão niên người Đức                </a>
+                                    <div class="des-small">
+                        Trở thành một hiện tượng thời trang trên mạng xã hội từ năm 2019, cặp đôi lão niên người Đức Gunther Krabbenhoft và Britt...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/top-giay-the-thao-camo" class="bg-verti" title="Top giày thể thao camo ấn tượng nhất trong lịch sử sneakergame">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/08/27/194103/giay-the-thao-camo-elle-man-cover-1-475x267.jpeg" alt="Top giày thể thao camo ấn tượng nhất trong lịch sử sneakergame" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/top-giay-the-thao-camo" class="title-big" title="Top giày thể thao camo ấn tượng nhất trong lịch sử sneakergame">
+                    Top giày thể thao camo ấn tượng nhất trong lịch sử sneakergame                </a>
+                                    <div class="des-small">
+                        Nếu thiết kế là bộ khung không mang nhiều thay đổi và chỉ được tuỳ chỉnh theo khoảng cách thời gian tính bằng năm, thì những...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/tip-quy-tac-phu-kien-nam" class="bg-verti" title="Phụ kiện trang sức nam và 4 quy tắc styling quan trọng">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2020/04/21/176646/phu-kien-trang-suc-nam-elle-man-cover-1-475x267.jpeg" alt="Phụ kiện trang sức nam và 4 quy tắc styling quan trọng" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/tip-quy-tac-phu-kien-nam" class="title-big" title="Phụ kiện trang sức nam và 4 quy tắc styling quan trọng">
+                    Phụ kiện trang sức nam và 4 quy tắc styling quan trọng                </a>
+                                    <div class="des-small">
+                        Phụ kiện tuy nhỏ bé nhưng lại mang sức mạnh tuyên ngôn rất lớn: Thể hiện một phần tính cách, địa vị xã hội, quyền lực, gu thẩm...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/elleman-style-calendar-loungewear" class="bg-verti" title="ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/08/24/200971/loungewear-ellemanstylecalendar-featured-final-475x267.jpeg" alt="ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/elleman-style-calendar-loungewear" class="title-big" title="ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội">
+                    ELLE Man Style Calendar: Loungewear - Thời trang mùa giãn cách xã hội                </a>
+                                    <div class="des-small">
+                        Mặc dù yếu tố thời trang trong những trang phục mặc nhà (loungewear) vốn ít được chú trọng, thế nhưng vẫn có nhiều cách để bạn...                    </div>
+                                </div>
+                    <div class="col-xs-12 col-md-4">
+                <a href="https://www.elleman.vn/phong-cach/sac-du-phong-tot-nhat-2021" class="bg-verti" title="Top pin sạc dự phòng đáng mua của năm 2021">
+                    <img data-original="https://www.elleman.vn/wp-content/uploads/2021/08/06/200175/pin-sac-du-phong-2021-elle-man-cover-1-475x267.jpeg" alt="Top pin sạc dự phòng đáng mua của năm 2021" class="lazy">
+                </a>
+                <a href="https://www.elleman.vn/phong-cach/sac-du-phong-tot-nhat-2021" class="title-big" title="Top pin sạc dự phòng đáng mua của năm 2021">
+                    Top pin sạc dự phòng đáng mua của năm 2021                </a>
+                                    <div class="des-small">
+                        Khi phải ở nhà thường xuyên, chúng ta sẽ giải trí (chơi game, lướt mạng xã hội, xem phim...) trên điện thoại và table nhiều...                    </div>
+                                </div>
+                        </div>
+</div>
+    </div>
+</div>
+</div>
+</div>
+<div class="sitemap-ft" style="margin-top: 40px">
+    <div class="container">
+        <ul class="list-site-main">
+                                <li>
+                        <a href="http://www.elle.vn/elle-network/" title="Elle Network">Elle Network</a>
+                                                    <ul class="sub">
+                                                                    <li><a href="http://www.elle.vn/elle-network/star/" title="Nhân vật">Nhân vật</a></li>
+                                                                    <li><a href="http://www.elle.vn/elle-network/brand/" title="Thương hiệu">Thương hiệu</a></li>
+                                                            </ul>
+                                            </li>
+                                <li>
+                        <a href="https://www.elleman.vn/style-guide/" title="Style Guide">Style Guide</a>
+                                            </li>
+                                <li>
+                        <a href="https://www.elleman.vn/phong-do/" title="Phong độ">Phong độ</a>
+                                                    <ul class="sub">
+                                                                    <li><a href="https://www.elleman.vn/phong-do/thoi-trang/" title="Xu hướng">Xu hướng</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phong-do/phong-cach/" title="Phong cách">Phong cách</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phong-do/cham-soc-ca-nhan/" title="Chăm sóc cá nhân">Chăm sóc cá nhân</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phong-do/suc-khoe/" title="Sức khỏe">Sức khỏe</a></li>
+                                                            </ul>
+                                            </li>
+                                <li>
+                        <a href="https://www.elleman.vn/phong-cach-song/" title="Phong cách sống">Phong cách sống</a>
+                                                    <ul class="sub">
+                                                                    <li><a href="https://www.elleman.vn/phong-cach-song/ky-nang/" title="Kỹ năng">Kỹ năng</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phong-cach-song/thu-choi/" title="Thú chơi">Thú chơi</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phong-cach-song/van-hoa-giai-tri/" title="Văn hoá – Giải trí">Văn hoá – Giải trí</a></li>
+                                                            </ul>
+                                            </li>
+                                <li>
+                        <a href="https://www.elleman.vn/phai-dep/" title="Phái đẹp">Phái đẹp</a>
+                                                    <ul class="sub">
+                                                                    <li><a href="https://www.elleman.vn/phai-dep/hot-women/" title="Hot women">Hot women</a></li>
+                                                                    <li><a href="https://www.elleman.vn/phai-dep/tam-ly-tinh-yeu/" title="Tâm lý – Tình Yêu">Tâm lý – Tình Yêu</a></li>
+                                                            </ul>
+                                            </li>
+                                <li>
+                        <a href="https://www.elleman.vn/elle-man-360/" title="ELLE Man 360">ELLE Man 360</a>
+                                                    <ul class="sub">
+                                                                    <li><a href="https://www.elleman.vn/elle-man-360/tap-chi/" title="Tạp chí">Tạp chí</a></li>
+                                                                    <li><a href="https://www.elleman.vn/elle-man-360/tin-tuc/" title="Tin tức">Tin tức</a></li>
+                                                            </ul>
+                                            </li>
+                    </ul>
+    </div>
+</div>
+<div id="page-footer">
+    <div class="line-ft">&nbsp;</div>
+    <div class="container">
+        <div class="ft-main">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="logo-ft">
+                        <a href="https://www.elleman.vn"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%200'%3E%3C/svg%3E" alt="logo" width="220" data-lazy-src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-ft.png"><noscript><img src="https://www.elleman.vn/wp-content/themes/elleman/images/logo-elle-ft.png" alt="logo" width="220"></noscript></a>
+                    </div>
+                    <div class="social-ft">
+                        <ul class="social-share">
+                            <li><a href="https://www.facebook.com/elleman.vn" rel="nofollow" target="_blank" title="facebook"><i class="ico ico-face-ft"></i></a></li>
+                            <li><a href="https://www.instagram.com/ellemanvietnam/ " rel="nofollow" target="_blank" title="Intagram"><i class="ico ico-intas-ft"></i></a></li>
+                            <li><a href="https://www.youtube.com/user/ellevietnam" rel="nofollow" target="_blank" title="youtube"><i class="ico ico-you-ft"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <nav>
+                        <ul class="nav-ft">
+                            <li><a rel="nofollow" href="https://www.elleman.vn/gioi-thieu/">Giới thiệu</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/dieu-khoan-su-dung/">Điều khoản sử dụng</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/chinh-sach-rieng-tu/">Chính sách riêng tư</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/cau-hoi-thuong-gap/">Câu hỏi thường gặp</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/sitemap/">Sitemap</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+                            <li><a rel="nofollow" href="https://www.elleman.vn/lien-he/">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+                    <div class="contact-ft">
+                        124 Điện Biên Phủ, Phường Đakao, Quận 1, TPHCM <br>
+                        Điện thoại: +84982663849 | Email: <a rel="nofollow" href="mailto:lienhe@elleman.vn" style="color: #636363;">lienhe@elleman.vn</a> <br><br>
+                        Chịu trách nhiệm quản lý nội dung: Nguyễn Thị Hồng Hoa <br>
+                        Giấy phép hoạt động trang thông tin điện tử tổng hợp số 54/GP-ICP-STTTT, HCM ngày 11/07/2012 <br><br>
+                        Bản quyền thuộc về ELLE Man Việt Nam © 2021                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<a title="Về đầu trang" href="#home" class="site-scroll-top"> </a>
+<div id="fb-root"></div>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin|\/logout|\/wp-login.php","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/www.elleman.vn","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/jquery-ui.min.js?ver=5.6.4' id='jquery-ui-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/bootstrap.min.js?ver=3.0' id='bootstrap-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/jquery.mCustomScrollbar.js?ver=1630301195' id='jquery.mCustomScrollbar-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/highcharts.js?ver=1630301195' id='jquery.highcharts.js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/jquery.validate.min.js?ver=3.0' id='validation-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-includes/js/jquery/jquery.form.min.js?ver=4.2.1' id='jquery-form-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/jquery.lazyload.min.js?ver=1.0' id='jquery-lazyload-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/select2.min.js?ver=1.0' id='jquery-select2-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/sweet-alert.min.js?ver=1.0' id='swal-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/jquery.easing.1.3.js?ver=1630301195' id='jquery-easing-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/jquery.lavalamp.js?ver=1630301195' id='jquery-lavalamp-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js?ver=1630301196' id='jquery-fancybox-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/jquery.touchSwipe.min.js?ver=2.0' id='jquery-swipe-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/galleria-1.4.2.min.js?ver=2.0' id='jquery-gallery-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/themes/elleman/js/owl.carousel.min.js?ver=2.0' id='owlcarousel-js' defer></script>
+<script type='text/javascript' id='em-app-js-extra'>
+/* <![CDATA[ */
+var em_ajax = {"ajaxurl":"https:\/\/www.elleman.vn\/wp-admin\/admin-ajax.php","app_fb_id":"948357501875247"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/application.js?ver=1630301196' id='em-app-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/app-ext.js?ver=1630301196' id='em-app-ext-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/cache/min/1/wp-content/themes/elleman/js/jquery.multiselect.js?ver=1630301196' id='multiselect-js' defer></script>
+<script type='text/javascript' id='elasticpress-autosuggest-js-extra'>
+/* <![CDATA[ */
+var epas = {"query":"{\"from\":0,\"size\":10,\"sort\":[{\"_score\":{\"order\":\"desc\"}}],\"query\":{\"function_score\":{\"query\":{\"bool\":{\"should\":[{\"bool\":{\"must\":[{\"bool\":{\"should\":[{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"type\":\"phrase\",\"fields\":[\"post_title^80\",\"post_excerpt^70\",\"post_content^60\",\"post_author.display_name^50\",\"terms.category.name^70\",\"terms.post_tag.name^61\",\"terms.ep_custom_result.name^9999\"],\"boost\":3}},{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"fields\":[\"post_title^80\",\"post_excerpt^70\",\"post_content^60\",\"post_author.display_name^50\",\"terms.category.name^70\",\"terms.post_tag.name^61\",\"terms.ep_custom_result.name^9999\",\"post_title.suggest^79\"],\"type\":\"phrase\",\"slop\":5}}]}}],\"filter\":[{\"match\":{\"post_type.raw\":\"post\"}}]}},{\"bool\":{\"must\":[{\"bool\":{\"should\":[{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"type\":\"phrase\",\"fields\":[\"post_title^1\",\"post_excerpt^1\",\"post_content^1\",\"post_author.display_name^1\",\"terms.ep_custom_result.name^9999\"],\"boost\":3}},{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"fields\":[\"post_title^1\",\"post_excerpt^1\",\"post_content^1\",\"post_author.display_name^1\",\"terms.ep_custom_result.name^9999\",\"post_title.suggest^1\"],\"type\":\"phrase\",\"slop\":5}}]}}],\"filter\":[{\"match\":{\"post_type.raw\":\"page\"}}]}},{\"bool\":{\"must\":[{\"bool\":{\"should\":[{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"type\":\"phrase\",\"fields\":[\"post_title^80\",\"post_excerpt^70\",\"post_content^70\",\"attachments.attachment.content^50\",\"post_author.display_name^50\",\"terms.ep_custom_result.name^9999\"],\"boost\":3}},{\"multi_match\":{\"query\":\"ep_autosuggest_placeholder\",\"fields\":[\"post_title^80\",\"post_excerpt^70\",\"post_content^70\",\"attachments.attachment.content^50\",\"post_author.display_name^50\",\"terms.ep_custom_result.name^9999\",\"post_title.suggest^79\"],\"type\":\"phrase\",\"slop\":5}}]}}],\"filter\":[{\"match\":{\"post_type.raw\":\"attachment\"}}]}}]}},\"functions\":[{\"exp\":{\"post_date_gmt\":{\"scale\":\"14d\",\"decay\":0.25,\"offset\":\"7d\"}}},{\"weight\":0.001}],\"score_mode\":\"sum\",\"boost_mode\":\"multiply\"}},\"post_filter\":{\"bool\":{\"must\":[{\"terms\":{\"post_mime_type\":[\"application\\\/pdf\",\"application\\\/vnd.ms-powerpoint\",\"application\\\/vnd.openxmlformats-officedocument.presentationml.presentation\",\"application\\\/vnd.ms-excel\",\"application\\\/vnd.openxmlformats-officedocument.spreadsheetml.sheet\",\"application\\\/msword\",\"application\\\/vnd.openxmlformats-officedocument.wordprocessingml.document\",\"\"]}},{\"terms\":{\"post_type.raw\":[\"post\",\"page\",\"attachment\"]}},{\"terms\":{\"post_status\":[\"publish\",\"inherit\"]}}]}},\"highlight\":{\"fields\":{\"post_title\":{\"pre_tags\":[\"<mark class=\\\"ep-highlight\\\">\"],\"post_tags\":[\"<\\\/mark>\"],\"type\":\"plain\",\"number_of_fragments\":0},\"post_content\":{\"pre_tags\":[\"<mark class=\\\"ep-highlight\\\">\"],\"post_tags\":[\"<\\\/mark>\"],\"type\":\"plain\",\"number_of_fragments\":0}}}}","placeholder":"ep_autosuggest_placeholder","endpointUrl":"\/es-search\/_doc\/_search","selector":".ep-autosuggest","defaultSelectors":".ep-autosuggest, input[type=\"search\"], .search-field","action":"navigate","mimeTypes":{"pdf":"application\/pdf","ppt":"application\/vnd.ms-powerpoint","pptx":"application\/vnd.openxmlformats-officedocument.presentationml.presentation","xls":"application\/vnd.ms-excel","xlsx":"application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","doc":"application\/msword","docx":"application\/vnd.openxmlformats-officedocument.wordprocessingml.document","0":""},"http_headers":[],"triggerAnalytics":"1","addSearchTermHeader":"","highlightingEnabled":"1","highlightingTag":"mark","highlightingClass":"ep-highlight"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.elleman.vn/wp-content/plugins/elasticpress/dist/js/autosuggest-script.min.js?ver=3.6.0' id='elasticpress-autosuggest-js' defer></script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.elleman.vn/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img loading="lazy" data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<div class="play"></div>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.dataset.query.length?'':'&'+this.dataset.query;e.setAttribute("src",t.replace("ID",this.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.replaceChild(e,this)}document.addEventListener("DOMContentLoaded",function(){var e,t,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),e.onclick=lazyLoadYoutubeIframe,a[t].appendChild(e)});</script><script type="rocketlazyloadscript">"use strict";var wprRemoveCPCSS=function wprRemoveCPCSS(){var elem;document.querySelector('link[data-rocket-async="style"][rel="preload"]')?setTimeout(wprRemoveCPCSS,200):(elem=document.getElementById("rocket-critical-css"))&&"remove"in elem&&elem.remove()};window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link rel="stylesheet" href="https://www.elleman.vn/wp-content/cache/min/1/eae586ec38a082548cb5f9053c5efa63.css" media="all" data-minify="1" /></noscript></body>
+
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1632017726 -->

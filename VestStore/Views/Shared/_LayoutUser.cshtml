@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <title>Vestman | Quý ông lịch lãm</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <!-- -------------------------------------Header----------------------------------------- -->
+    <section class="top">
+        <div class="container">
+            <div class="row">
+
+                <!-- ----------Logo---------- -->
+                <div class="top-logo">
+                    <a href="index.html"> <img src="~/IMAGES/logovestman.png" alt=""> </a>
+                </div>
+
+                <!-- ----------Menu lớn---------- -->
+                <div class="top-menu-items">
+
+
+                    <!-- ----------Giới thiệu---------- -->
+                    <li>
+                        <a href="introduce.html">GIỚI THIỆU</a>
+                        <!-- <ul class="top-menu-item">
+                            <li> <a href="">VỀ CHÚNG TÔI</a> </li>
+                            <li> <a href="">LIÊN HỆ</a> </li>
+                        </ul> -->
+                    </li>
+
+                    <!-- ----------DANH MỤC SẢN PHẨM---------- -->
+                    <li>
+                        <a href="~/Views/Shared/ViewProducts.cshtml">SẢN PHẨM</a>
+                        <ul class="top-menu-item">
+                            <li>
+                                <a href="cartegory.html">VEST LỊCH LÃM</a>
+                                <ul>
+                                    <li> <a href="cartegory.html">VEST DẠ HỘI</a> </li>
+                                    <li> <a href="cartegory.html">VEST CÔNG SỞ</a> </li>
+                                    <li> <a href="cartegory.html">VEST PARTY</a> </li>
+                                    <li> <a href="cartegory.html">VEST DOANH NHÂN</a>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">ÁO ÂU NAM</a>
+                                <ul>
+                                    <li> <a href="cartegory.html">ÁO SƠ MI</a>
+                                    <li> <a href="cartegory.html">ÁO GILE</a>
+                                    <li> <a href="cartegory.html">ÁO PHÔNG</a>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="cartegory.html">QUẦN ÂU NAM</a>
+                                <ul>
+                                    <li> <a href="cartegory.html">QUẦN TÂY</a>
+                                    <li> <a href="cartegory.html">QUẦN TÂY THUN</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- ----------DANH MỤC PHỤ KIỆN---------- -->
+                    <li>
+                        <a href="cartegory.html">PHỤ KIỆN </a>
+                        <ul class="top-menu-item">
+                            <li> <a href="cartegory.html">ĐỒNG HỒ NAM</a> </li>
+                            <li> <a href="cartegory.html">CÀ VẠT NAM</a> </li>
+                            <li> <a href="cartegory.html">THẮT LƯNG NAM</a> </li>
+                        </ul>
+                    </li>
+
+                    <!-- ----------GÓC ĐÀN ÔNG---------- -->
+                    <li> <a href="news-man.html">GÓC ĐÀN ÔNG</a></li>
+
+                    <!-- ----------ƯU ĐÃI---------- -->
+                    <li> <a href="cartegory.html" style="color: red;">ƯU ĐÃI CHO BẠN </a>
+
+                </div>
+
+                <!-- ----------Tìm kiếm---------- -->
+                <div class="top-menu-icons">
+                    <li>
+                        <input type="text" placeholder="Tìm kiếm">
+                        <i class="fas fa-search"></i>
+                    </li>
+
+                    <li>
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fas fa-user-secret"></i>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------------------Slider----------------------------------------- -->
+    <section class="slider owl-carousel owl-theme">
+        <div class="slider-item slider-item-one">
+
+        </div>
+
+        <div class="slider-item slider-item-two">
+
+        </div>
+
+        <div class="slider-item slider-item-three">
+
+        </div>
+    </section>
+
+    <!-- -------------------------------------Footer----------------------------------------- -->
+    <section class="footer">
+        <div class="footer-container">
+
+            <p>Tải ứng dụng Vestman</p>
+            <div class="app-google">
+                <a href=""><img src="~/IMAGES/appstore.jpeg" alt=""></a>
+                <a href=""> <img src="~/IMAGES/googleplay.jpeg" alt=""></a>
+            </div>
+
+            <p>Nhận bản tin Vestman</p>
+            <div class="input-email">
+                <input type="text" placeholder="Nhập email của bạn">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="footer-items">
+                <li><a href="">Liên hệ</a></li>
+                <li><a href="">Giới thiệu</a></li>
+                <li><a href="">Sản phẩm</a></li>
+                <li><a href="">Bảng tin</a></li>
+                <!-- <li><a href=""><i class="fab fa-facebook-f"></i></a><a href=""><i class="fab fa-youtube"></i></a></li> -->
+            </div>
+
+            <div class="footer-text">
+                <p>Bản quyền phần mềm thuộc về Hứa Chí Cường, Phạm Quang Long, Ngô Trường Phúc, Nguyễn Tùng Huy</p>
+                <br>
+                <p>Mọi chi tiết xin hệ qua Vestman@gmail.com</p>
+                <br>
+                <p>Hoặc SDT: 0909999999</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p> ©Vestman 2021 | All rights reserved </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- -------------------------------------JavaScript----------------------------------------- -->
+    <script src="~/Scripts/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+
+        /* ---------- Các chức năng của Framework Slider ----------*/
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
